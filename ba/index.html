@@ -13,17 +13,14 @@
   --text:#EFEFF4;
   --text-2:#A0A0AC;
   --text-3:#62626C;
-  --accent:#F59E0B;
-  --accent-2:#FBBF24;
-  --accent-soft:rgba(245,158,11,.10);
-  --accent-line:rgba(245,158,11,.35);
-  --good:#22C55E;
-  --warn:#EF4444;
+  --acc:#F59E0B;
+  --acc-2:#FBBF24;
+  --acc-soft:rgba(245,158,11,.10);
+  --acc-line:rgba(245,158,11,.35);
+  --acc-text-bg:rgba(245,158,11,.10);
+  --acc-fill-soft-rgba:rgba(245,158,11,.18);
   --max:1180px;
-  --r:14px;
-  --r-sm:10px;
-  --r-lg:24px;
-  --shadow:0 8px 32px rgba(0,0,0,.45);
+  --r:14px;--r-lg:24px;
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI','SF Pro Display',-apple-system,BlinkMacSystemFont,Arial,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.55}
@@ -32,104 +29,108 @@ a{color:inherit;text-decoration:none}
 .container{max-width:var(--max);margin:0 auto;padding:0 32px}
 section{padding:96px 0;position:relative}
 section + section{border-top:1px solid var(--border)}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;padding:6px 12px;border:1px solid var(--accent-line);border-radius:999px;background:var(--accent-soft);margin-bottom:18px}
-.eyebrow::before{content:"";width:6px;height:6px;background:var(--accent);border-radius:50%}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);font-weight:600;padding:6px 12px;border:1px solid var(--acc-line);border-radius:999px;background:var(--acc-soft);margin-bottom:18px}
+.eyebrow::before{content:"";width:6px;height:6px;background:var(--acc);border-radius:50%}
 h1,h2,h3,h4{margin:0;font-weight:700;letter-spacing:-.02em;color:var(--text)}
 h1{font-size:64px;line-height:1.05}
 h2{font-size:38px;line-height:1.15}
 h3{font-size:22px;line-height:1.3}
-.muted{color:var(--text-2)}
-.dim{color:var(--text-3)}
+.muted{color:var(--text-2)} .dim{color:var(--text-3)}
 
 nav.top{position:sticky;top:0;z-index:50;background:rgba(10,10,16,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
 .nav-inner{max-width:var(--max);margin:0 auto;padding:18px 32px;display:flex;justify-content:space-between;align-items:center}
 .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;letter-spacing:.02em}
-.logo .dot{width:10px;height:10px;background:var(--accent);border-radius:3px;transform:rotate(45deg)}
+.logo .dot{width:10px;height:10px;background:var(--acc);border-radius:3px;transform:rotate(45deg)}
 .nav-links{display:flex;gap:28px;font-size:13px;color:var(--text-2)}
-.nav-links a:hover{color:var(--accent)}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;font-size:13px;font-weight:600;background:var(--accent);color:#1A1208;border:none;cursor:pointer;transition:transform .15s ease}
+.nav-links a:hover{color:var(--acc)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;font-size:13px;font-weight:600;background:var(--acc);color:#1A1208;border:none;cursor:pointer;transition:transform .15s ease}
 .btn:hover{transform:translateY(-1px)}
 .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
-.btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn.ghost:hover{border-color:var(--acc);color:var(--acc)}
 
-/* ===== HERO ===== */
 .hero{padding:120px 0 110px;overflow:hidden;position:relative}
-.hero::before{content:"";position:absolute;inset:0;background:
-  radial-gradient(60% 60% at 80% 0%,rgba(245,158,11,.10) 0%,transparent 60%),
-  radial-gradient(50% 50% at 0% 100%,rgba(245,158,11,.05) 0%,transparent 60%);
-  pointer-events:none}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 80% 0%,var(--acc-soft) 0%,transparent 60%),radial-gradient(50% 50% at 0% 100%,var(--acc-soft) 0%,transparent 60%);pointer-events:none;opacity:.6}
 .hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:64px;align-items:center;position:relative}
-.hero h1 span.acc{background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1 span.acc{background:linear-gradient(135deg,var(--acc),var(--acc-2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero p.lead{font-size:18px;color:var(--text-2);margin:24px 0 36px;max-width:560px}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px}
 .hero-meta{display:flex;flex-wrap:wrap;gap:24px;font-size:13px;color:var(--text-2)}
 .hero-meta div b{color:var(--text);font-weight:600}
 
-/* photo block */
 .hero-photo{position:relative;display:flex;justify-content:center;align-items:center}
-.photo-frame{position:relative;width:100%;max-width:380px;aspect-ratio:3/4;border-radius:28px;padding:8px;background:linear-gradient(160deg,var(--accent) 0%,#7E5310 60%,#23232E 100%);box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(245,158,11,.18)}
-.photo-frame::before{content:"";position:absolute;inset:-30px;background:radial-gradient(60% 60% at 50% 50%,rgba(245,158,11,.18) 0%,transparent 60%);z-index:-1;border-radius:50%}
+.photo-frame{position:relative;width:100%;max-width:380px;aspect-ratio:3/4;border-radius:28px;padding:8px;background:linear-gradient(160deg,var(--acc) 0%,#7E5310 60%,#23232E 100%);box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px var(--acc-line)}
+.photo-frame::before{content:"";position:absolute;inset:-30px;background:radial-gradient(60% 60% at 50% 50%,var(--acc-soft) 0%,transparent 60%);z-index:-1;border-radius:50%}
 .photo-frame img{width:100%;height:100%;object-fit:cover;border-radius:22px;display:block}
-.photo-tag{position:absolute;bottom:18px;left:18px;background:rgba(10,10,16,.85);backdrop-filter:blur(8px);padding:8px 14px;border-radius:999px;border:1px solid var(--border);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;display:flex;align-items:center;gap:8px}
-.photo-tag::before{content:"";width:6px;height:6px;background:var(--accent);border-radius:50%}
+.photo-tag{position:absolute;bottom:18px;left:18px;background:rgba(10,10,16,.85);backdrop-filter:blur(8px);padding:8px 14px;border-radius:999px;border:1px solid var(--border);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);font-weight:700;display:flex;align-items:center;gap:8px}
+.photo-tag::before{content:"";width:6px;height:6px;background:var(--acc);border-radius:50%}
 
-/* ===== CASES ===== */
 .cases-head{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:16px;margin-bottom:32px}
 .case{display:grid;grid-template-columns:.92fr 1.08fr;gap:48px;padding:48px 0;border-bottom:1px solid var(--border)}
 .case:last-child{border-bottom:none}
-.case-num{font-size:13px;color:var(--accent);font-weight:600;letter-spacing:.12em;margin-bottom:8px;font-feature-settings:"tnum"}
+.case-num{font-size:13px;color:var(--acc);font-weight:600;letter-spacing:.12em;margin-bottom:8px;font-feature-settings:"tnum"}
 .case h3{font-size:28px;line-height:1.2;margin-bottom:14px;letter-spacing:-.01em}
 .case .ctx{font-size:13.5px;color:var(--text-3);margin-bottom:24px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 .case .ctx span+span::before{content:"·";margin-right:14px;color:var(--text-3)}
 .case h4{font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:.16em;margin:24px 0 12px}
 .case ul{list-style:none;padding:0;margin:0}
 .case li{font-size:14px;color:var(--text);padding:8px 0;padding-left:22px;position:relative;line-height:1.55}
-.case li::before{content:"→";position:absolute;left:0;color:var(--accent);font-weight:700}
+.case li::before{content:"→";position:absolute;left:0;color:var(--acc);font-weight:700}
+.case li code{font-family:'JetBrains Mono','Consolas',monospace;font-size:12px;color:var(--acc);background:var(--acc-soft);padding:1px 6px;border-radius:4px}
 .case .stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
 .tag{font-size:11px;font-family:'JetBrains Mono','Consolas',monospace;color:var(--text-2);padding:5px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-soft)}
-.tag.acc{color:var(--accent);border-color:var(--accent-line);background:var(--accent-soft)}
+.tag.acc{color:var(--acc);border-color:var(--acc-line);background:var(--acc-soft)}
+.tag.gost{color:#FBBF24;border-color:rgba(251,191,36,.35);background:rgba(251,191,36,.08)}
 
 .case-visual{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column}
 .case-visual-head{padding:14px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text-3);font-family:'JetBrains Mono','Consolas',monospace}
+.case-visual-head + .case-visual-head{border-top:0}
 .case-visual-head .dots{display:flex;gap:6px}
 .case-visual-head .dots span{width:9px;height:9px;border-radius:50%;background:#2A2A35}
 .case-visual-head .dots span:first-child{background:#3B3B45}
-.case-visual-body{padding:32px 28px;flex:1;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#13131C 0%,#0F0F18 100%)}
-.case-visual-body img{max-width:100%;height:auto;border-radius:var(--r-sm);box-shadow:0 4px 24px rgba(0,0,0,.4)}
+.case-visual-head .acc-text{color:var(--acc)}
+.case-visual-body{padding:32px 28px;flex:1;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--bg-card) 0%,#0F0F18 100%)}
+.case-visual-body img{max-width:100%;height:auto;border-radius:10px;box-shadow:0 4px 24px rgba(0,0,0,.4)}
 .case-visual-body svg{max-width:100%;height:auto;display:block}
+.case-visual-body pre{margin:0;width:100%;font-family:'JetBrains Mono','Consolas',monospace;font-size:11.5px;line-height:1.6;color:#D4D4DA;background:transparent;overflow:auto;white-space:pre}
+.kw{color:#C586C0} .typ{color:#4EC9B0} .str{color:#CE9178} .num{color:#B5CEA8} .com{color:#6A9955;font-style:italic} .fn{color:#DCDCAA}
 
-/* ===== STACK MATRIX ===== */
+/* SVG accent helpers */
+.acc-fill{fill:var(--acc)}
+.acc-stroke{stroke:var(--acc)}
+.acc-text{fill:var(--acc)}
+.acc-text-2{fill:var(--acc-2)}
+.acc-fill-soft{fill:var(--acc-fill-soft-rgba)}
+.acc-stop1{stop-color:var(--acc);stop-opacity:.15}
+.acc-stop2{stop-color:var(--acc);stop-opacity:.55}
+
 .stack-matrix{margin-top:48px;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
 .smr{display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid var(--border)}
 .smr:last-child{border-bottom:none}
-.smr .smc1{padding:20px 24px;background:var(--bg-soft);font-size:13px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;display:flex;align-items:center;border-right:1px solid var(--border)}
+.smr .smc1{padding:20px 24px;background:var(--bg-soft);font-size:13px;font-weight:600;color:var(--acc);text-transform:uppercase;letter-spacing:.1em;display:flex;align-items:center;border-right:1px solid var(--border)}
 .smr .smc2{padding:20px 24px;display:flex;flex-wrap:wrap;gap:8px}
 .smr .smc2 .tag{font-size:12.5px;padding:6px 12px}
 
-/* ===== TIMELINE ===== */
 .timeline{position:relative;margin-top:40px;padding-left:32px}
 .timeline::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:var(--border)}
 .tl{position:relative;padding-bottom:28px}
-.tl::before{content:"";position:absolute;left:-32px;top:6px;width:20px;height:20px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
-.tl::after{content:"";position:absolute;left:-26px;top:12px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
-.tl .when{font-size:12px;color:var(--accent);font-weight:600;letter-spacing:.06em;margin-bottom:4px}
+.tl::before{content:"";position:absolute;left:-32px;top:6px;width:20px;height:20px;border-radius:50%;background:var(--bg);border:2px solid var(--acc)}
+.tl::after{content:"";position:absolute;left:-26px;top:12px;width:8px;height:8px;border-radius:50%;background:var(--acc)}
+.tl .when{font-size:12px;color:var(--acc);font-weight:600;letter-spacing:.06em;margin-bottom:4px}
 .tl .what{font-size:16px;color:var(--text);font-weight:600}
 .tl .where{font-size:13.5px;color:var(--text-2);margin-top:2px}
 
-/* ===== ABOUT ===== */
 .about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start}
 .contact-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-lg);padding:32px}
 .cline{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--border)}
 .cline:last-child{border-bottom:none}
-.cline .ic{width:36px;height:36px;border-radius:8px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cline .ic{width:36px;height:36px;border-radius:8px;background:var(--acc-soft);color:var(--acc);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .cline .lbl{font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:.08em}
 .cline .val{font-size:14px;color:var(--text);font-weight:500}
 
 footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:var(--text-3);text-align:center}
 
 @media (max-width: 920px){
-  h1{font-size:42px}
-  h2{font-size:28px}
+  h1{font-size:42px} h2{font-size:28px}
   .hero-grid,.about-grid{grid-template-columns:1fr;gap:48px}
   .case{grid-template-columns:1fr;gap:24px}
   .smr{grid-template-columns:1fr}
@@ -156,7 +157,6 @@ footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:
   </div>
 </nav>
 
-<!-- ===== HERO ===== -->
 <section class="hero">
   <div class="container">
     <div class="hero-grid">
@@ -173,7 +173,6 @@ footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:
           <div>МИРЭА · бизнес-информатика · 3 курс</div>
         </div>
       </div>
-
       <div class="hero-photo">
         <div class="photo-frame">
           <img src="../assets/sabina.png" alt="Сабина Баротова">
@@ -184,7 +183,6 @@ footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:
   </div>
 </section>
 
-<!-- ===== CASES ===== -->
 <section id="cases">
   <div class="container">
     <div class="cases-head">
@@ -192,385 +190,391 @@ footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:
         <span class="eyebrow">Кейсы</span>
         <h2>Над чем работала</h2>
       </div>
-      <div class="dim" style="font-size:13px">5&nbsp;кейсов · бизнес-аналитика, продуктовая стратегия, моделирование</div>
+      <div class="dim" style="font-size:13px">9&nbsp;кейсов · бизнес-аналитика, продуктовая стратегия, моделирование, аудит</div>
     </div>
-
-    <!-- Case 1: ВкусВилл -->
+    
     <div class="case">
       <div>
         <div class="case-num">КЕЙС 01</div>
         <h3>Стратегический анализ ВкусВилл</h3>
         <div class="ctx"><span>Командный (4 чел.)</span><span>2025</span><span>Retail · Healthy food</span></div>
-
         <h4>Что сделала</h4>
-        <ul>
-          <li>Разобрала миссию и&nbsp;экосистему по&nbsp;фреймворку <b>SMART</b></li>
-          <li>Описала ценность для <b>4 групп стейкхолдеров</b>: покупатели, сотрудники, поставщики, общество</li>
-          <li>Построила <b>Growth Matrix</b>: позиция компании <b>14,9% / 26,7%</b> — выше квадранта здорового роста</li>
-          <li>Сформулировала рекомендации по&nbsp;развитию экосистемы</li>
-          <li>Подготовила и&nbsp;защитила презентацию перед комиссией</li>
-        </ul>
-
+        <ul><li>Разобрала миссию и&nbsp;экосистему по&nbsp;фреймворку <b>SMART</b></li><li>Описала ценность для <b>4 групп стейкхолдеров</b>: покупатели, сотрудники, поставщики, общество</li><li>Построила <b>Growth Matrix</b>: позиция компании <b>14,9% / 26,7%</b> — выше квадранта здорового роста</li><li>Сформулировала рекомендации по&nbsp;развитию экосистемы и&nbsp;защитила проект перед комиссией</li></ul>
         <h4>Стек</h4>
-        <div class="stack">
-          <span class="tag acc">SMART</span>
-          <span class="tag acc">Stakeholder Map</span>
-          <span class="tag acc">Growth Matrix</span>
-          <span class="tag">MS PowerPoint</span>
-          <span class="tag">MS Word</span>
-        </div>
+        <div class="stack"><span class="tag acc">SMART</span><span class="tag acc">Stakeholder Map</span><span class="tag acc">Growth Matrix</span><span class="tag">MS PowerPoint</span><span class="tag">MS Word</span></div>
       </div>
-
-      <div class="case-visual">
-        <div class="case-visual-head">
-          <div class="dots"><span></span><span></span><span></span></div>
-          <span>stakeholder_map.svg</span>
-        </div>
-        <div class="case-visual-body">
-          <svg viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="sm-link" x1="0" x2="1">
-                <stop offset="0" stop-color="#F59E0B" stop-opacity=".15"/>
-                <stop offset="1" stop-color="#F59E0B" stop-opacity=".55"/>
-              </linearGradient>
-            </defs>
-            <g stroke="url(#sm-link)" stroke-width="2" fill="none">
-              <path d="M250 190 L 110 70"/>
-              <path d="M250 190 L 390 70"/>
-              <path d="M250 190 L 110 310"/>
-              <path d="M250 190 L 390 310"/>
-            </g>
-            <circle cx="250" cy="190" r="62" fill="#F59E0B"/>
-            <circle cx="250" cy="190" r="62" fill="none" stroke="#FBBF24" stroke-width="1.5"/>
-            <text x="250" y="184" text-anchor="middle" fill="#1A1208" font-family="Inter,sans-serif" font-size="11" font-weight="700">МИССИЯ</text>
-            <text x="250" y="200" text-anchor="middle" fill="#1A1208" font-family="Inter,sans-serif" font-size="10">экосистема</text>
-            <text x="250" y="214" text-anchor="middle" fill="#1A1208" font-family="Inter,sans-serif" font-size="10">здорового</text>
-            <text x="250" y="228" text-anchor="middle" fill="#1A1208" font-family="Inter,sans-serif" font-size="10">образа жизни</text>
-            <g font-family="Inter,sans-serif" font-weight="600" fill="#EFEFF4">
-              <g><rect x="50" y="36" width="120" height="68" rx="10" fill="#191923" stroke="#F59E0B" stroke-width="1.5"/><text x="110" y="68" text-anchor="middle" font-size="13">Покупатели</text><text x="110" y="86" text-anchor="middle" font-size="10" fill="#A0A0AC">B2C · LTV · NPS</text></g>
-              <g><rect x="330" y="36" width="120" height="68" rx="10" fill="#191923" stroke="#F59E0B" stroke-width="1.5"/><text x="390" y="68" text-anchor="middle" font-size="13">Сотрудники</text><text x="390" y="86" text-anchor="middle" font-size="10" fill="#A0A0AC">eNPS · retention</text></g>
-              <g><rect x="50" y="276" width="120" height="68" rx="10" fill="#191923" stroke="#F59E0B" stroke-width="1.5"/><text x="110" y="308" text-anchor="middle" font-size="13">Поставщики</text><text x="110" y="326" text-anchor="middle" font-size="10" fill="#A0A0AC">SLA · качество</text></g>
-              <g><rect x="330" y="276" width="120" height="68" rx="10" fill="#191923" stroke="#F59E0B" stroke-width="1.5"/><text x="390" y="308" text-anchor="middle" font-size="13">Общество</text><text x="390" y="326" text-anchor="middle" font-size="10" fill="#A0A0AC">ESG · влияние</text></g>
-            </g>
-          </svg>
-        </div>
-        <div class="case-visual-head" style="border-top:1px solid var(--border);border-bottom:none">
-          <span>growth_matrix.png</span>
-          <span style="color:var(--accent)">14,9% / 26,7%</span>
-        </div>
-        <div class="case-visual-body" style="padding:16px">
-          <img src="../assets/vkusvill_01.png" alt="Growth Matrix ВкусВилл">
-        </div>
-      </div>
+      <div class="case-visual"><div class="case-visual-head"><div class="dots"><span></span><span></span><span></span></div><span>stakeholder_map.svg</span></div><div class="case-visual-body"><svg viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="vku-link" x1="0" x2="1"><stop offset="0" class="acc-stop1"/><stop offset="1" class="acc-stop2"/></linearGradient></defs>
+              <g stroke="url(#vku-link)" stroke-width="2" fill="none">
+                <path d="M250 190 L 110 70"/><path d="M250 190 L 390 70"/>
+                <path d="M250 190 L 110 310"/><path d="M250 190 L 390 310"/>
+              </g>
+              <circle cx="250" cy="190" r="62" class="acc-fill"/>
+              <text x="250" y="184" text-anchor="middle" fill="#0A0A10" font-family="Inter,sans-serif" font-size="11" font-weight="700">МИССИЯ</text>
+              <text x="250" y="200" text-anchor="middle" fill="#0A0A10" font-family="Inter,sans-serif" font-size="10">экосистема</text>
+              <text x="250" y="214" text-anchor="middle" fill="#0A0A10" font-family="Inter,sans-serif" font-size="10">здорового</text>
+              <text x="250" y="228" text-anchor="middle" fill="#0A0A10" font-family="Inter,sans-serif" font-size="10">образа жизни</text>
+              <g font-family="Inter,sans-serif" font-weight="600" fill="#EFEFF4">
+                <g><rect x="50" y="36" width="120" height="68" rx="10" fill="#191923" class="acc-stroke" stroke-width="1.5"/><text x="110" y="68" text-anchor="middle" font-size="13">Покупатели</text><text x="110" y="86" text-anchor="middle" font-size="10" fill="#A0A0AC">B2C · LTV · NPS</text></g>
+                <g><rect x="330" y="36" width="120" height="68" rx="10" fill="#191923" class="acc-stroke" stroke-width="1.5"/><text x="390" y="68" text-anchor="middle" font-size="13">Сотрудники</text><text x="390" y="86" text-anchor="middle" font-size="10" fill="#A0A0AC">eNPS · retention</text></g>
+                <g><rect x="50" y="276" width="120" height="68" rx="10" fill="#191923" class="acc-stroke" stroke-width="1.5"/><text x="110" y="308" text-anchor="middle" font-size="13">Поставщики</text><text x="110" y="326" text-anchor="middle" font-size="10" fill="#A0A0AC">SLA · качество</text></g>
+                <g><rect x="330" y="276" width="120" height="68" rx="10" fill="#191923" class="acc-stroke" stroke-width="1.5"/><text x="390" y="308" text-anchor="middle" font-size="13">Общество</text><text x="390" y="326" text-anchor="middle" font-size="10" fill="#A0A0AC">ESG · влияние</text></g>
+              </g>
+            </svg></div><div class="case-visual-head"><div class="dots"><span></span><span></span><span></span></div><span>growth_matrix.png</span><span class="acc-text">14,9% / 26,7%</span></div><div class="case-visual-body" style="padding:16px"><img src="../assets/vkusvill_01.png" alt="Growth Matrix ВкусВилл"></div></div>
     </div>
-
-    <!-- Case 2: StudyHall -->
     <div class="case">
       <div>
         <div class="case-num">КЕЙС 02</div>
-        <h3>2D-симулятор Studyhall &mdash; продуктовая стратегия</h3>
+        <h3>Studyhall &mdash; продуктовая стратегия (UBK EdTech)</h3>
         <div class="ctx"><span>Учебный продуктовый кейс</span><span>2025</span><span>EdTech · Gamified learning</span></div>
-
         <h4>Что сделала</h4>
-        <ul>
-          <li>Конкурентный анализ <b>5 EdTech-платформ</b> (Quizlet, Anki, Kahoot, StudySmarter, Memrise) по&nbsp;8 параметрам</li>
-          <li>Сформулировала value proposition «<b>immersive 2D + AI tutor</b>», свободная ниша</li>
-          <li>Сегментировала аудиторию на&nbsp;<b>4 группы</b> и&nbsp;описала их JTBD</li>
-          <li>Спроектировала продуктовую механику: 3 зоны кампуса, 5 уровней прогрессии, формула XP с&nbsp;8 переменными</li>
-          <li>Монетизационная модель: 3-tier подписка <b>749 / 1 189 ₽/мес</b>, B2B-лицензии <b>13 990 — 99 990 ₽</b>, ARPU <b>969 / 1 798 ₽</b></li>
-          <li>Финансовая модель: окупаемость <b>~9 мес.</b> при 5 000 пользователей и&nbsp;выручке <b>8,99 М ₽</b></li>
-        </ul>
-
+        <ul><li>Конкурентный анализ <b>5 EdTech-платформ</b> (Quizlet, Anki, Kahoot, StudySmarter, Memrise) по&nbsp;8 параметрам</li><li>Сформулировала value proposition «<b>immersive 2D + AI tutor</b>», свободная ниша</li><li>Сегментировала аудиторию на&nbsp;<b>4 группы</b> и&nbsp;описала их JTBD</li><li>Спроектировала продуктовую механику: 3 зоны кампуса, 5 уровней прогрессии, формула XP с&nbsp;8 переменными</li><li>Монетизация: 3-tier подписка <b>749 / 1 189 ₽/мес</b>, B2B <b>13 990 — 99 990 ₽</b>, ARPU <b>969 / 1 798 ₽</b></li><li>Финмодель: окупаемость <b>~9 мес.</b> при 5 000 пользователей и&nbsp;выручке <b>8,99 М ₽</b></li></ul>
         <h4>Стек</h4>
-        <div class="stack">
-          <span class="tag acc">JTBD</span>
-          <span class="tag acc">Конкурентный анализ</span>
-          <span class="tag acc">Pricing strategy</span>
-          <span class="tag acc">ARPU/LTV</span>
-          <span class="tag">Figma</span>
-          <span class="tag">MS Excel</span>
-        </div>
+        <div class="stack"><span class="tag acc">JTBD</span><span class="tag acc">Конкурентный анализ</span><span class="tag acc">Pricing strategy</span><span class="tag acc">ARPU/LTV</span><span class="tag">Figma</span><span class="tag">MS Excel</span></div>
       </div>
-
-      <div class="case-visual">
-        <div class="case-visual-head">
-          <div class="dots"><span></span><span></span><span></span></div>
-          <span>competitive_matrix.svg</span>
-        </div>
-        <div class="case-visual-body">
-          <svg viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg">
-            <text x="250" y="22" text-anchor="middle" fill="#A0A0AC" font-family="Inter" font-size="10" letter-spacing="2">+ AI ASSESSMENT</text>
-            <text x="250" y="370" text-anchor="middle" fill="#A0A0AC" font-family="Inter" font-size="10" letter-spacing="2">— FLASHCARDS / DRILL</text>
-            <text x="14" y="195" text-anchor="middle" fill="#A0A0AC" font-family="Inter" font-size="10" letter-spacing="2" transform="rotate(-90 14 195)">— BASIC GAMIFICATION</text>
-            <text x="486" y="195" text-anchor="middle" fill="#A0A0AC" font-family="Inter" font-size="10" letter-spacing="2" transform="rotate(90 486 195)">+ IMMERSIVE WORLD</text>
-            <rect x="60" y="40" width="380" height="310" fill="none" stroke="#23232E" stroke-width="1"/>
-            <line x1="60" y1="195" x2="440" y2="195" stroke="#23232E" stroke-dasharray="4 4"/>
-            <line x1="250" y1="40" x2="250" y2="350" stroke="#23232E" stroke-dasharray="4 4"/>
-            <g font-family="Inter,sans-serif" font-size="11" fill="#A0A0AC">
-              <g><circle cx="120" cy="280" r="6" fill="#62626C"/><text x="132" y="284">Anki</text></g>
-              <g><circle cx="160" cy="240" r="6" fill="#62626C"/><text x="172" y="244">Quizlet</text></g>
-              <g><circle cx="195" cy="160" r="6" fill="#62626C"/><text x="207" y="164">StudySmarter</text></g>
-              <g><circle cx="320" cy="290" r="6" fill="#62626C"/><text x="332" y="294">Kahoot</text></g>
-              <g><circle cx="280" cy="220" r="6" fill="#62626C"/><text x="292" y="224">Memrise</text></g>
-            </g>
-            <g>
-              <circle cx="380" cy="100" r="14" fill="#F59E0B"/>
-              <circle cx="380" cy="100" r="22" fill="none" stroke="#F59E0B" stroke-opacity=".4"/>
-              <circle cx="380" cy="100" r="32" fill="none" stroke="#F59E0B" stroke-opacity=".15"/>
-              <text x="380" y="80" text-anchor="middle" fill="#F59E0B" font-family="Inter" font-size="13" font-weight="700">STUDYHALL</text>
-              <text x="380" y="125" text-anchor="middle" fill="#FBBF24" font-family="Inter" font-size="10">free niche</text>
-            </g>
-          </svg>
-        </div>
-        <div class="case-visual-head" style="border-top:1px solid var(--border);border-bottom:none">
-          <span>studyhall_screen.png · продукт</span>
-          <span style="color:var(--accent)">Year 1 · XP 0/100</span>
-        </div>
-        <div class="case-visual-body" style="padding:16px">
-          <img src="../assets/studyhall_title.png" alt="2D-симулятор Studyhall">
-        </div>
-      </div>
+      <div class="case-visual"><div class="case-visual-head"><div class="dots"><span></span><span></span><span></span></div><span>competitive_matrix.svg</span></div><div class="case-visual-body"><svg viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg">
+              <text x="250" y="22" text-anchor="middle" fill="#A0A0AC" font-family="Inter" font-size="10" letter-spacing="2">+ AI ASSESSMENT</text>
+              <text x="250" y="370" text-anchor="middle" fill="#A0A0AC" font-family="Inter" font-size="10" letter-spacing="2">— FLASHCARDS / DRILL</text>
+              <text x="14" y="195" text-anchor="middle" fill="#A0A0AC" font-family="Inter" font-size="10" letter-spacing="2" transform="rotate(-90 14 195)">— BASIC GAMIFICATION</text>
+              <text x="486" y="195" text-anchor="middle" fill="#A0A0AC" font-family="Inter" font-size="10" letter-spacing="2" transform="rotate(90 486 195)">+ IMMERSIVE WORLD</text>
+              <rect x="60" y="40" width="380" height="310" fill="none" stroke="#23232E" stroke-width="1"/>
+              <line x1="60" y1="195" x2="440" y2="195" stroke="#23232E" stroke-dasharray="4 4"/>
+              <line x1="250" y1="40" x2="250" y2="350" stroke="#23232E" stroke-dasharray="4 4"/>
+              <g font-family="Inter,sans-serif" font-size="11" fill="#A0A0AC">
+                <g><circle cx="120" cy="280" r="6" fill="#62626C"/><text x="132" y="284">Anki</text></g>
+                <g><circle cx="160" cy="240" r="6" fill="#62626C"/><text x="172" y="244">Quizlet</text></g>
+                <g><circle cx="195" cy="160" r="6" fill="#62626C"/><text x="207" y="164">StudySmarter</text></g>
+                <g><circle cx="320" cy="290" r="6" fill="#62626C"/><text x="332" y="294">Kahoot</text></g>
+                <g><circle cx="280" cy="220" r="6" fill="#62626C"/><text x="292" y="224">Memrise</text></g>
+              </g>
+              <g>
+                <circle cx="380" cy="100" r="14" class="acc-fill"/>
+                <circle cx="380" cy="100" r="22" fill="none" class="acc-stroke" stroke-opacity=".4"/>
+                <circle cx="380" cy="100" r="32" fill="none" class="acc-stroke" stroke-opacity=".15"/>
+                <text x="380" y="80" text-anchor="middle" class="acc-text" font-family="Inter" font-size="13" font-weight="700">STUDYHALL</text>
+                <text x="380" y="125" text-anchor="middle" class="acc-text-2" font-family="Inter" font-size="10">free niche</text>
+              </g>
+            </svg></div><div class="case-visual-head"><div class="dots"><span></span><span></span><span></span></div><span>studyhall_screen.png</span><span class="acc-text">Year 1 · XP 0/100</span></div><div class="case-visual-body" style="padding:16px"><img src="../assets/studyhall_title.png" alt="2D-симулятор Studyhall"></div></div>
     </div>
-
-    <!-- Case 3: Eduson architecture -->
     <div class="case">
       <div>
         <div class="case-num">КЕЙС 03</div>
-        <h3>Бизнес-архитектура Eduson Academy</h3>
-        <div class="ctx"><span>Системный анализ организации</span><span>2025</span><span>EdTech · LMS</span></div>
-
+        <h3>Studyhall &mdash; техническая архитектура EdTech-симулятора</h3>
+        <div class="ctx"><span>Системный кейс</span><span>2025</span><span>EdTech · AI · RAG</span></div>
         <h4>Что сделала</h4>
-        <ul>
-          <li>Построила диаграмму «<b>Структура входов и&nbsp;выходов организации</b>»</li>
-          <li>Описала внешнюю среду: поставщики тех., рынок труда, инвесторы, регуляторы (<b>ФЗ-152, Рособрнадзор</b>)</li>
-          <li>Разделила входы на&nbsp;материальные (LMS, ПО, оборудование) и&nbsp;нематериальные (данные, труд, знания экспертов)</li>
-          <li>Описала ценность для <b>3 групп потребителей</b>: B2C-студенты, B2B-клиенты, общество (рынок труда)</li>
-          <li>Согласовала диаграмму с&nbsp;командой и&nbsp;презентовала результат</li>
-        </ul>
-
+        <ul><li>Описала <b>4-слойную архитектуру</b>: Frontend, Backend, ML/AI, DevOps</li><li>Сформулировала требования к&nbsp;интеграции: REST-API между Node.js и&nbsp;FastAPI</li><li>Пайплайн <b>AI-оценивания</b>: парсинг контента → векторизация → семантический поиск → RAG-генерация → JSON-rubric (0–100)</li><li>Описала схему данных PostgreSQL и&nbsp;нефункциональные требования (privacy-first, локальные LLaMA-модели)</li></ul>
         <h4>Стек</h4>
-        <div class="stack">
-          <span class="tag acc">Системный анализ</span>
-          <span class="tag acc">IDEF0-подход</span>
-          <span class="tag">draw.io</span>
-          <span class="tag">MS PowerPoint</span>
-        </div>
+        <div class="stack"><span class="tag">REST-API</span><span class="tag">PostgreSQL</span><span class="tag">Node.js · Express</span><span class="tag">Python · FastAPI</span><span class="tag acc">RAG</span><span class="tag acc">LLaMA (ollama)</span><span class="tag">Docker</span></div>
       </div>
-
-      <div class="case-visual">
-        <div class="case-visual-head">
-          <div class="dots"><span></span><span></span><span></span></div>
-          <span>io_structure.png</span>
-        </div>
-        <div class="case-visual-body" style="padding:16px;background:#FAFAFA">
-          <img src="../assets/eduson46_io_structure.png" alt="Структура входов и выходов организации Eduson Academy">
-        </div>
-      </div>
+      <div class="case-visual"><div class="case-visual-head"><div class="dots"><span></span><span></span><span></span></div><span>tech_stack.svg</span></div><div class="case-visual-body"><svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+              <g font-family="Inter" font-weight="700">
+                <g>
+                  <rect x="60" y="40" width="380" height="62" rx="10" fill="#191926" class="acc-stroke" stroke-width="1.5"/>
+                  <text x="78" y="64" class="acc-text" font-size="11" letter-spacing="2">FRONTEND</text>
+                  <text x="78" y="86" font-family="JetBrains Mono,Consolas,monospace" font-size="11" fill="#EFEFF4" font-weight="500">JavaScript  ·  HTMX  ·  Tailwind CSS</text>
+                </g>
+                <g>
+                  <rect x="60" y="120" width="380" height="62" rx="10" fill="#191926" class="acc-stroke" stroke-width="1.5"/>
+                  <text x="78" y="144" class="acc-text" font-size="11" letter-spacing="2">BACKEND · APP</text>
+                  <text x="78" y="166" font-family="JetBrains Mono,Consolas,monospace" font-size="11" fill="#EFEFF4" font-weight="500">Node.js  ·  Express  ·  PostgreSQL  ·  Prisma / Knex</text>
+                </g>
+                <g>
+                  <rect x="60" y="200" width="380" height="62" rx="10" class="acc-fill-soft acc-stroke" stroke-width="2"/>
+                  <text x="78" y="224" fill="#FBBF24" font-size="11" letter-spacing="2">ML / AI · RAG PIPELINE</text>
+                  <text x="78" y="246" font-family="JetBrains Mono,Consolas,monospace" font-size="11" fill="#EFEFF4" font-weight="500">Python  ·  FastAPI  ·  LLaMA (ollama)  ·  JSON rubric</text>
+                </g>
+                <g>
+                  <rect x="60" y="280" width="380" height="62" rx="10" fill="#191926" class="acc-stroke" stroke-width="1.5"/>
+                  <text x="78" y="304" class="acc-text" font-size="11" letter-spacing="2">DEVOPS</text>
+                  <text x="78" y="326" font-family="JetBrains Mono,Consolas,monospace" font-size="11" fill="#EFEFF4" font-weight="500">Docker Compose  ·  NGINX  ·  Certbot SSL  ·  Watchtower</text>
+                </g>
+                <g class="acc-stroke" stroke-width="1.5" fill="none" stroke-opacity=".5">
+                  <path d="M250 102 L 250 120"/><path d="M250 182 L 250 200"/><path d="M250 262 L 250 280"/>
+                </g>
+                <text x="60" y="376" fill="#62626C" font-family="Inter" font-size="11">Privacy-first: локальные LLaMA-модели, без отправки данных в облако</text>
+              </g>
+            </svg></div></div>
     </div>
-
-    <!-- Case 4: AS-IS / TO-BE -->
     <div class="case">
       <div>
         <div class="case-num">КЕЙС 04</div>
-        <h3>Моделирование процессов AS-IS / TO-BE</h3>
-        <div class="ctx"><span>Оптимизация процесса</span><span>2025</span><span>Process modeling</span></div>
-
+        <h3>Бизнес-архитектура Eduson Academy</h3>
+        <div class="ctx"><span>Системный анализ организации</span><span>2025</span><span>EdTech · LMS</span></div>
         <h4>Что сделала</h4>
-        <ul>
-          <li>Описала текущие («как есть») и&nbsp;целевые («как должно быть») процессы</li>
-          <li>Идентифицировала <b>узкие места</b>: ручные операции, лишние шаги, риски согласования</li>
-          <li>Предложила оптимизации: автоматизация, объединение шагов, исключение дубликатов</li>
-          <li>Подготовила сравнительную таблицу AS-IS vs TO-BE для согласования с&nbsp;заказчиком</li>
-        </ul>
-
+        <ul><li>Построила диаграмму «<b>Структура входов и&nbsp;выходов организации</b>» в&nbsp;нотации IDEF0</li><li>Описала внешнюю среду: поставщики тех., рынок труда, инвесторы, регуляторы (<b>ФЗ-152, Рособрнадзор</b>)</li><li>Разделила входы на&nbsp;материальные (LMS, ПО, оборудование) и&nbsp;нематериальные (данные, труд, знания)</li><li>Описала ценность для <b>3 групп потребителей</b>: B2C-студенты, B2B-клиенты, общество (рынок труда)</li></ul>
         <h4>Стек</h4>
-        <div class="stack">
-          <span class="tag acc">BPMN-подход</span>
-          <span class="tag acc">AS-IS / TO-BE</span>
-          <span class="tag">draw.io</span>
-        </div>
+        <div class="stack"><span class="tag acc">IDEF0</span><span class="tag acc">Системный анализ</span><span class="tag">draw.io</span><span class="tag">MS PowerPoint</span></div>
       </div>
-
-      <div class="case-visual">
-        <div class="case-visual-head">
-          <div class="dots"><span></span><span></span><span></span></div>
-          <span>as_is_to_be.svg</span>
-        </div>
-        <div class="case-visual-body">
-          <svg viewBox="0 0 520 400" xmlns="http://www.w3.org/2000/svg">
-            <g>
-              <text x="20" y="40" fill="#EF4444" font-family="Inter" font-size="11" font-weight="700" letter-spacing="2">AS-IS · 7 ШАГОВ</text>
-              <g font-family="Inter" font-size="10" fill="#A0A0AC">
-                <g><rect x="20" y="56" width="60" height="36" rx="6" fill="#191923" stroke="#23232E"/><text x="50" y="78" text-anchor="middle">Заявка</text></g>
-                <g><rect x="92" y="56" width="60" height="36" rx="6" fill="#191923" stroke="#23232E"/><text x="122" y="74" text-anchor="middle">Email-</text><text x="122" y="86" text-anchor="middle">переписка</text></g>
-                <g><rect x="164" y="56" width="60" height="36" rx="6" fill="#191923" stroke="#23232E"/><text x="194" y="74" text-anchor="middle">Ручная</text><text x="194" y="86" text-anchor="middle">проверка</text></g>
-                <g><rect x="236" y="56" width="60" height="36" rx="6" fill="#191923" stroke="#23232E"/><text x="266" y="74" text-anchor="middle">Бумажный</text><text x="266" y="86" text-anchor="middle">договор</text></g>
-                <g><rect x="308" y="56" width="60" height="36" rx="6" fill="#EF4444" stroke="#EF4444" fill-opacity=".15"/><text x="338" y="74" text-anchor="middle" fill="#EF4444">Подпись</text><text x="338" y="86" text-anchor="middle" fill="#EF4444">офлайн</text></g>
-                <g><rect x="380" y="56" width="60" height="36" rx="6" fill="#191923" stroke="#23232E"/><text x="410" y="74" text-anchor="middle">Скан</text><text x="410" y="86" text-anchor="middle">в архив</text></g>
-                <g><rect x="452" y="56" width="60" height="36" rx="6" fill="#191923" stroke="#23232E"/><text x="482" y="74" text-anchor="middle">Excel-</text><text x="482" y="86" text-anchor="middle">отчёт</text></g>
-              </g>
-              <g stroke="#62626C" stroke-width="1" fill="none">
-                <path d="M80 74 L 92 74"/><path d="M152 74 L 164 74"/><path d="M224 74 L 236 74"/><path d="M296 74 L 308 74"/><path d="M368 74 L 380 74"/><path d="M440 74 L 452 74"/>
-              </g>
-              <g font-family="Inter" font-size="9.5" fill="#EF4444">
-                <text x="20" y="115">Узкие места: 7 шагов · 2 ручные операции · 1 офлайн-подпись · 3 системы</text>
-                <text x="20" y="130">Длительность: ~14 дней · риски: потери документов, дубли</text>
-              </g>
-            </g>
-            <line x1="20" y1="170" x2="500" y2="170" stroke="#23232E" stroke-dasharray="4 4"/>
-            <g transform="translate(0,200)">
-              <text x="20" y="20" fill="#22C55E" font-family="Inter" font-size="11" font-weight="700" letter-spacing="2">TO-BE · 4 ШАГА</text>
-              <g font-family="Inter" font-size="10" fill="#EFEFF4">
-                <g><rect x="20" y="36" width="100" height="44" rx="8" fill="#F59E0B" fill-opacity=".18" stroke="#F59E0B"/><text x="70" y="58" text-anchor="middle">Онлайн-заявка</text><text x="70" y="72" text-anchor="middle" fill="#A0A0AC">через ЛК</text></g>
-                <g><rect x="140" y="36" width="100" height="44" rx="8" fill="#F59E0B" fill-opacity=".18" stroke="#F59E0B"/><text x="190" y="58" text-anchor="middle">Авто-валидация</text><text x="190" y="72" text-anchor="middle" fill="#A0A0AC">правил</text></g>
-                <g><rect x="260" y="36" width="100" height="44" rx="8" fill="#22C55E" fill-opacity=".18" stroke="#22C55E"/><text x="310" y="58" text-anchor="middle" fill="#22C55E">ЭЦП-подпись</text><text x="310" y="72" text-anchor="middle" fill="#A0A0AC">обеими сторон.</text></g>
-                <g><rect x="380" y="36" width="100" height="44" rx="8" fill="#F59E0B" fill-opacity=".18" stroke="#F59E0B"/><text x="430" y="58" text-anchor="middle">Дашборд</text><text x="430" y="72" text-anchor="middle" fill="#A0A0AC">в реальном вр.</text></g>
-              </g>
-              <g stroke="#F59E0B" stroke-width="1.5" fill="none">
-                <path d="M120 58 L 140 58"/><path d="M240 58 L 260 58"/><path d="M360 58 L 380 58"/>
-              </g>
-              <g font-family="Inter" font-size="9.5" fill="#22C55E">
-                <text x="20" y="105">Улучшения: −3 шага · 0 ручных операций · 1 единая система</text>
-                <text x="20" y="120">Длительность: ~3 дня · −78% времени · аудит-trail из коробки</text>
-              </g>
-            </g>
-          </svg>
-        </div>
-      </div>
+      <div class="case-visual"><div class="case-visual-head"><div class="dots"><span></span><span></span><span></span></div><span>io_structure.png</span></div><div class="case-visual-body" style="padding:16px;background:#FAFAFA"><img src="../assets/eduson46_io_structure.png" alt="Структура входов и выходов организации Eduson Academy"></div></div>
     </div>
-
-    <!-- Case 5: IT-аудит Eduson -->
     <div class="case">
       <div>
         <div class="case-num">КЕЙС 05</div>
+        <h3>ТЗ системы поддержки Eduson Academy</h3>
+        <div class="ctx"><span>Учебный кейс</span><span>сент. — дек. 2025</span><span>14 недель · 6 этапов</span></div>
+        <h4>Что сделала</h4>
+        <ul><li>Разработала ТЗ по&nbsp;<b>ГОСТ 34.602-89 / 19.201-78</b> на&nbsp;9 разделов</li><li>Описала функциональные и&nbsp;нефункциональные требования, входные/выходные данные, безопасность, интеграции</li><li>Спроектировала <b>3 модуля</b>: Q&amp;A-ассистент, маркетплейс проверки заданий, CRM-интеграция тикетов</li><li>Целевой <b>SLA 90–100%</b> обращений в&nbsp;срок, централизованный сбор статистики качества</li><li>Календарный план на&nbsp;6 этапов (5 сент. — 12 дек. 2025)</li></ul>
+        <h4>Стек</h4>
+        <div class="stack"><span class="tag gost">ГОСТ 34.602-89</span><span class="tag gost">ГОСТ 19.201-78</span><span class="tag acc">RUP</span><span class="tag">MS Word</span></div>
+      </div>
+      <div class="case-visual"><div class="case-visual-head"><div class="dots"><span></span><span></span><span></span></div><span>tz_sections.svg</span><span class="acc-text">9 разделов · ГОСТ</span></div><div class="case-visual-body"><svg viewBox="0 0 500 420" xmlns="http://www.w3.org/2000/svg">
+              <g font-family="Inter">
+                <text x="20" y="22" fill="#A0A0AC" font-size="11" letter-spacing="2" font-weight="700">ТЗ · СТРУКТУРА ПО ГОСТ 34.602-89</text>
+                <g font-size="11">
+                <g transform="translate(20,40)">
+                  <rect x="0" y="0" width="34" height="34" rx="6" class="acc-fill"/>
+                  <text x="17" y="22" text-anchor="middle" fill="#0A0A10" font-weight="700" font-size="13">1</text>
+                  <rect x="46" y="0" width="430" height="34" rx="6" fill="#191926" stroke="#23232E"/>
+                  <text x="60" y="14" fill="#EFEFF4" font-weight="600">Общие сведения</text>
+                  <text x="60" y="28" fill="#A0A0AC" font-size="9.5">цель, нормативные ссылки на ГОСТ 34.602-89, ГОСТ 19.201-78</text>
+                </g>
+                <g transform="translate(20,78)">
+                  <rect x="0" y="0" width="34" height="34" rx="6" class="acc-fill"/>
+                  <text x="17" y="22" text-anchor="middle" fill="#0A0A10" font-weight="700" font-size="13">2</text>
+                  <rect x="46" y="0" width="430" height="34" rx="6" fill="#191926" stroke="#23232E"/>
+                  <text x="60" y="14" fill="#EFEFF4" font-weight="600">Основные характеристики системы</text>
+                  <text x="60" y="28" fill="#A0A0AC" font-size="9.5">назначение, область применения</text>
+                </g>
+                <g transform="translate(20,116)">
+                  <rect x="0" y="0" width="34" height="34" rx="6" class="acc-fill"/>
+                  <text x="17" y="22" text-anchor="middle" fill="#0A0A10" font-weight="700" font-size="13">3</text>
+                  <rect x="46" y="0" width="430" height="34" rx="6" fill="#191926" stroke="#23232E"/>
+                  <text x="60" y="14" fill="#EFEFF4" font-weight="600">Функциональные требования</text>
+                  <text x="60" y="28" fill="#A0A0AC" font-size="9.5">сценарии, описание модулей Q&A / маркетплейс / CRM</text>
+                </g>
+                <g transform="translate(20,154)">
+                  <rect x="0" y="0" width="34" height="34" rx="6" class="acc-fill"/>
+                  <text x="17" y="22" text-anchor="middle" fill="#0A0A10" font-weight="700" font-size="13">4</text>
+                  <rect x="46" y="0" width="430" height="34" rx="6" fill="#191926" stroke="#23232E"/>
+                  <text x="60" y="14" fill="#EFEFF4" font-weight="600">Нефункциональные требования</text>
+                  <text x="60" y="28" fill="#A0A0AC" font-size="9.5">безопасность, производительность, надёжность</text>
+                </g>
+                <g transform="translate(20,192)">
+                  <rect x="0" y="0" width="34" height="34" rx="6" class="acc-fill"/>
+                  <text x="17" y="22" text-anchor="middle" fill="#0A0A10" font-weight="700" font-size="13">5</text>
+                  <rect x="46" y="0" width="430" height="34" rx="6" fill="#191926" stroke="#23232E"/>
+                  <text x="60" y="14" fill="#EFEFF4" font-weight="600">Входные / выходные данные</text>
+                  <text x="60" y="28" fill="#A0A0AC" font-size="9.5">форматы, объёмы, источники</text>
+                </g>
+                <g transform="translate(20,230)">
+                  <rect x="0" y="0" width="34" height="34" rx="6" class="acc-fill"/>
+                  <text x="17" y="22" text-anchor="middle" fill="#0A0A10" font-weight="700" font-size="13">6</text>
+                  <rect x="46" y="0" width="430" height="34" rx="6" fill="#191926" stroke="#23232E"/>
+                  <text x="60" y="14" fill="#EFEFF4" font-weight="600">Интеграции и масштабируемость</text>
+                  <text x="60" y="28" fill="#A0A0AC" font-size="9.5">API, очередь обращений</text>
+                </g>
+                <g transform="translate(20,268)">
+                  <rect x="0" y="0" width="34" height="34" rx="6" class="acc-fill"/>
+                  <text x="17" y="22" text-anchor="middle" fill="#0A0A10" font-weight="700" font-size="13">7</text>
+                  <rect x="46" y="0" width="430" height="34" rx="6" fill="#191926" stroke="#23232E"/>
+                  <text x="60" y="14" fill="#EFEFF4" font-weight="600">Документирование</text>
+                  <text x="60" y="28" fill="#A0A0AC" font-size="9.5">состав комплекта, ГОСТ 19.201-78</text>
+                </g>
+                <g transform="translate(20,306)">
+                  <rect x="0" y="0" width="34" height="34" rx="6" class="acc-fill"/>
+                  <text x="17" y="22" text-anchor="middle" fill="#0A0A10" font-weight="700" font-size="13">8</text>
+                  <rect x="46" y="0" width="430" height="34" rx="6" fill="#191926" stroke="#23232E"/>
+                  <text x="60" y="14" fill="#EFEFF4" font-weight="600">Требования к испытаниям</text>
+                  <text x="60" y="28" fill="#A0A0AC" font-size="9.5">приёмочные критерии</text>
+                </g>
+                <g transform="translate(20,344)">
+                  <rect x="0" y="0" width="34" height="34" rx="6" class="acc-fill"/>
+                  <text x="17" y="22" text-anchor="middle" fill="#0A0A10" font-weight="700" font-size="13">9</text>
+                  <rect x="46" y="0" width="430" height="34" rx="6" fill="#191926" stroke="#23232E"/>
+                  <text x="60" y="14" fill="#EFEFF4" font-weight="600">Соответствие стандартам</text>
+                  <text x="60" y="28" fill="#A0A0AC" font-size="9.5">заключение</text>
+                </g>
+                </g>
+              </g>
+            </svg></div></div>
+    </div>
+    <div class="case">
+      <div>
+        <div class="case-num">КЕЙС 06</div>
         <h3>IT-аудит сайта Eduson Academy</h3>
         <div class="ctx"><span>Аудит продукта</span><span>2025</span><span>UX · Performance · SEO</span></div>
-
         <h4>Что сделала</h4>
-        <ul>
-          <li>Провела аудит сайта по&nbsp;<b>7 метрикам</b>: дизайн и&nbsp;контент, безопасность (SSL), SEO, HTML-валидность, mobile/desktop performance, accessibility</li>
-          <li>Использовала <b>Lighthouse</b>, <b>PageSpeed Insights</b>, <b>W3C Validator</b></li>
-          <li>Итоговая оценка <b>62/100</b>: дизайн&nbsp;85, безопасность&nbsp;90, mobile&nbsp;35, desktop&nbsp;40, HTML&nbsp;60, SEO&nbsp;65</li>
-          <li>Сформулировала рекомендации по&nbsp;улучшению mobile-производительности и&nbsp;HTML-валидности</li>
-          <li>Подготовила структурированный отчёт с&nbsp;приоритезацией изменений</li>
-        </ul>
-
+        <ul><li>Провела аудит сайта по&nbsp;<b>7 метрикам</b>: дизайн, безопасность, SEO, HTML, mobile/desktop, accessibility</li><li>Использовала <b>Lighthouse</b>, <b>PageSpeed Insights</b>, <b>W3C Validator</b></li><li>Итог <b>62/100</b>: дизайн&nbsp;85, безопасность&nbsp;90, SEO&nbsp;65, HTML&nbsp;60, desktop&nbsp;40, mobile&nbsp;35</li><li>Сформулировала приоритезированные рекомендации по&nbsp;улучшению mobile-perf и&nbsp;HTML-валидности</li></ul>
         <h4>Стек</h4>
-        <div class="stack">
-          <span class="tag acc">UX-аудит</span>
-          <span class="tag">Google Lighthouse</span>
-          <span class="tag">PageSpeed Insights</span>
-          <span class="tag">W3C Validator</span>
-        </div>
+        <div class="stack"><span class="tag acc">UX-аудит</span><span class="tag">Google Lighthouse</span><span class="tag">PageSpeed Insights</span><span class="tag">W3C Validator</span></div>
       </div>
-
-      <div class="case-visual">
-        <div class="case-visual-head">
-          <div class="dots"><span></span><span></span><span></span></div>
-          <span>audit_scorecard.svg · 62/100</span>
-        </div>
-        <div class="case-visual-body">
-          <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
-            <g transform="translate(60,30)">
-              <rect width="380" height="80" rx="12" fill="#191923" stroke="#23232E"/>
-              <text x="20" y="32" fill="#A0A0AC" font-family="Inter" font-size="11" letter-spacing="2">ITOG · OVERALL SCORE</text>
-              <text x="20" y="68" fill="#F59E0B" font-family="Inter" font-size="32" font-weight="700">62</text>
-              <text x="68" y="68" fill="#62626C" font-family="Inter" font-size="20" font-weight="500">/ 100</text>
-              <text x="140" y="58" fill="#FBBF24" font-family="Inter" font-size="12" font-weight="600">SATISFACTORY</text>
-              <text x="140" y="74" fill="#62626C" font-family="Inter" font-size="11">7 metrics · 14 weeks</text>
-              <g transform="translate(290,40)">
-                <circle r="32" fill="none" stroke="#23232E" stroke-width="6"/>
-                <circle r="32" fill="none" stroke="#F59E0B" stroke-width="6" stroke-dasharray="125 200" transform="rotate(-90)"/>
-                <text y="6" text-anchor="middle" fill="#EFEFF4" font-family="Inter" font-size="14" font-weight="700">62%</text>
+      <div class="case-visual"><div class="case-visual-head"><div class="dots"><span></span><span></span><span></span></div><span>audit_scorecard.svg</span><span class="acc-text">62/100</span></div><div class="case-visual-body"><svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+              <g transform="translate(60,30)">
+                <rect width="380" height="80" rx="12" fill="#191926" stroke="#23232E"/>
+                <text x="20" y="32" fill="#A0A0AC" font-family="Inter" font-size="11" letter-spacing="2">ITOG · OVERALL SCORE</text>
+                <text x="20" y="68" class="acc-text" font-family="Inter" font-size="32" font-weight="700">62</text>
+                <text x="68" y="68" fill="#62626C" font-family="Inter" font-size="20" font-weight="500">/ 100</text>
+                <text x="140" y="58" fill="#FBBF24" font-family="Inter" font-size="12" font-weight="600">SATISFACTORY</text>
+                <text x="140" y="74" fill="#62626C" font-family="Inter" font-size="11">7 metrics · 14 weeks</text>
+                <g transform="translate(290,40)">
+                  <circle r="32" fill="none" stroke="#23232E" stroke-width="6"/>
+                  <circle r="32" fill="none" class="acc-stroke" stroke-width="6" stroke-dasharray="125 200" transform="rotate(-90)"/>
+                  <text y="6" text-anchor="middle" fill="#EFEFF4" font-family="Inter" font-size="14" font-weight="700">62%</text>
+                </g>
               </g>
-            </g>
-            <g font-family="Inter" font-size="11" fill="#A0A0AC">
-              <g transform="translate(60,140)"><text x="0" y="10">Дизайн и контент</text><text x="280" y="10" fill="#22C55E" font-weight="700">85</text><rect x="120" y="3" width="150" height="8" rx="4" fill="#23232E"/><rect x="120" y="3" width="127" height="8" rx="4" fill="#22C55E"/></g>
-              <g transform="translate(60,165)"><text x="0" y="10">Безопасность (SSL)</text><text x="280" y="10" fill="#22C55E" font-weight="700">90</text><rect x="120" y="3" width="150" height="8" rx="4" fill="#23232E"/><rect x="120" y="3" width="135" height="8" rx="4" fill="#22C55E"/></g>
-              <g transform="translate(60,190)"><text x="0" y="10">SEO-оптимизация</text><text x="280" y="10" fill="#FBBF24" font-weight="700">65</text><rect x="120" y="3" width="150" height="8" rx="4" fill="#23232E"/><rect x="120" y="3" width="97" height="8" rx="4" fill="#FBBF24"/></g>
-              <g transform="translate(60,215)"><text x="0" y="10">HTML / валидация</text><text x="280" y="10" fill="#FBBF24" font-weight="700">60</text><rect x="120" y="3" width="150" height="8" rx="4" fill="#23232E"/><rect x="120" y="3" width="90" height="8" rx="4" fill="#FBBF24"/></g>
-              <g transform="translate(60,240)"><text x="0" y="10">Desktop performance</text><text x="280" y="10" fill="#EF4444" font-weight="700">40</text><rect x="120" y="3" width="150" height="8" rx="4" fill="#23232E"/><rect x="120" y="3" width="60" height="8" rx="4" fill="#EF4444"/></g>
-              <g transform="translate(60,265)"><text x="0" y="10">Mobile performance</text><text x="280" y="10" fill="#EF4444" font-weight="700">35</text><rect x="120" y="3" width="150" height="8" rx="4" fill="#23232E"/><rect x="120" y="3" width="52" height="8" rx="4" fill="#EF4444"/></g>
-              <g transform="translate(60,290)"><text x="0" y="10">Accessibility</text><text x="280" y="10" fill="#FBBF24" font-weight="700">62</text><rect x="120" y="3" width="150" height="8" rx="4" fill="#23232E"/><rect x="120" y="3" width="93" height="8" rx="4" fill="#FBBF24"/></g>
-            </g>
-            <g transform="translate(60,335)">
-              <rect width="380" height="40" rx="8" fill="#191923" stroke="#23232E"/>
-              <text x="14" y="18" fill="#62626C" font-family="Inter" font-size="11">Tools used:</text>
-              <text x="92" y="18" fill="#A0A0AC" font-family="JetBrains Mono,Consolas,monospace" font-size="11">Lighthouse · PageSpeed · W3C Validator</text>
-              <text x="14" y="32" fill="#62626C" font-family="Inter" font-size="11">Recommended: ↑ mobile/desktop perf, ↑ HTML compliance, ↑ accessibility</text>
-            </g>
-          </svg>
-        </div>
-        <div class="case-visual-head" style="border-top:1px solid var(--border);border-bottom:none">
-          <span>eduson_site.png · объект аудита</span>
-          <span style="color:var(--accent)">edusonacademy.com</span>
-        </div>
-        <div class="case-visual-body" style="padding:16px">
-          <img src="../assets/eduson13_audit_01.png" alt="Скриншот сайта Eduson Academy">
-        </div>
-      </div>
+              <g font-family="Inter" font-size="11" fill="#A0A0AC">
+                <g transform="translate(60,140)"><text x="0" y="10">Дизайн и контент</text><text x="280" y="10" fill="#22C55E" font-weight="700">85</text><rect x="120" y="3" width="150" height="8" rx="4" fill="#23232E"/><rect x="120" y="3" width="127" height="8" rx="4" fill="#22C55E"/></g>
+                <g transform="translate(60,165)"><text x="0" y="10">Безопасность (SSL)</text><text x="280" y="10" fill="#22C55E" font-weight="700">90</text><rect x="120" y="3" width="150" height="8" rx="4" fill="#23232E"/><rect x="120" y="3" width="135" height="8" rx="4" fill="#22C55E"/></g>
+                <g transform="translate(60,190)"><text x="0" y="10">SEO-оптимизация</text><text x="280" y="10" fill="#FBBF24" font-weight="700">65</text><rect x="120" y="3" width="150" height="8" rx="4" fill="#23232E"/><rect x="120" y="3" width="97" height="8" rx="4" fill="#FBBF24"/></g>
+                <g transform="translate(60,215)"><text x="0" y="10">HTML / валидация</text><text x="280" y="10" fill="#FBBF24" font-weight="700">60</text><rect x="120" y="3" width="150" height="8" rx="4" fill="#23232E"/><rect x="120" y="3" width="90" height="8" rx="4" fill="#FBBF24"/></g>
+                <g transform="translate(60,240)"><text x="0" y="10">Desktop performance</text><text x="280" y="10" fill="#EF4444" font-weight="700">40</text><rect x="120" y="3" width="150" height="8" rx="4" fill="#23232E"/><rect x="120" y="3" width="60" height="8" rx="4" fill="#EF4444"/></g>
+                <g transform="translate(60,265)"><text x="0" y="10">Mobile performance</text><text x="280" y="10" fill="#EF4444" font-weight="700">35</text><rect x="120" y="3" width="150" height="8" rx="4" fill="#23232E"/><rect x="120" y="3" width="52" height="8" rx="4" fill="#EF4444"/></g>
+                <g transform="translate(60,290)"><text x="0" y="10">Accessibility</text><text x="280" y="10" fill="#FBBF24" font-weight="700">62</text><rect x="120" y="3" width="150" height="8" rx="4" fill="#23232E"/><rect x="120" y="3" width="93" height="8" rx="4" fill="#FBBF24"/></g>
+              </g>
+              <g transform="translate(60,335)">
+                <rect width="380" height="40" rx="8" fill="#191926" stroke="#23232E"/>
+                <text x="14" y="18" fill="#62626C" font-family="Inter" font-size="11">Tools used:</text>
+                <text x="92" y="18" fill="#A0A0AC" font-family="JetBrains Mono,Consolas,monospace" font-size="11">Lighthouse · PageSpeed · W3C Validator</text>
+                <text x="14" y="32" fill="#62626C" font-family="Inter" font-size="11">Recommended: ↑ mobile/desktop perf, ↑ HTML compliance, ↑ accessibility</text>
+              </g>
+            </svg></div><div class="case-visual-head"><div class="dots"><span></span><span></span><span></span></div><span>eduson_site.png</span><span class="acc-text">edusonacademy.com</span></div><div class="case-visual-body" style="padding:16px"><img src="../assets/eduson13_audit_01.png" alt="Скриншот сайта Eduson Academy"></div></div>
     </div>
+    <div class="case">
+      <div>
+        <div class="case-num">КЕЙС 07</div>
+        <h3>Модель данных IDEF1X &mdash; система управления практикой</h3>
+        <div class="ctx"><span>Логическая модель данных</span><span>2025</span><span>EdTech · Internship management</span></div>
+        <h4>Что сделала</h4>
+        <ul><li>Спроектировала логическую модель в&nbsp;<b>IDEF1X</b> на&nbsp;<b>6 сущностей</b>: ПОЛЬЗОВАТЕЛЬ, СТУДЕНТ, ОРГАНИЗАЦИЯ, ПРАКТИКА, ЗАЯВКА, ДОГОВОР</li><li>Определила первичные/внешние ключи, связи 1:N, типизацию атрибутов (int, string, date, boolean)</li><li>Описала бизнес-правила: статусы заявки, флаги подписания договора студентом и&nbsp;организацией</li><li>Проверила нормализацию (3НФ), описала сценарии использования и&nbsp;ограничения целостности</li></ul>
+        <h4>Стек</h4>
+        <div class="stack"><span class="tag acc">IDEF1X</span><span class="tag acc">ER-моделирование</span><span class="tag acc">3НФ</span><span class="tag">draw.io / diagrams.net</span></div>
+      </div>
+      <div class="case-visual"><div class="case-visual-head"><div class="dots"><span></span><span></span><span></span></div><span>idef1x_model.svg</span><span class="acc-text">6 entities</span></div><div class="case-visual-body"><svg viewBox="0 0 540 460" xmlns="http://www.w3.org/2000/svg">
+              <g class="acc-stroke" stroke-width="1.5" fill="none">
+                <path d="M170 90 L 220 90"/><path d="M270 130 L 270 200"/>
+                <path d="M120 280 L 220 240"/><path d="M430 240 L 320 240"/>
+                <path d="M270 280 L 270 350"/>
+              </g>
+              <g class="acc-fill">
+                <circle cx="170" cy="90" r="3"/><circle cx="220" cy="90" r="3"/>
+                <circle cx="270" cy="130" r="3"/><circle cx="270" cy="200" r="3"/>
+                <circle cx="120" cy="280" r="3"/><circle cx="220" cy="240" r="3"/>
+                <circle cx="430" cy="240" r="3"/><circle cx="320" cy="240" r="3"/>
+                <circle cx="270" cy="280" r="3"/><circle cx="270" cy="350" r="3"/>
+              </g>
+              <g font-family="JetBrains Mono,Consolas,monospace" font-size="10">
+                <g><rect x="40" y="50" width="130" height="84" rx="6" fill="#13131F" class="acc-stroke" stroke-width="1.5"/><rect x="40" y="50" width="130" height="22" rx="6" class="acc-fill"/><text x="54" y="66" fill="#FFFFFF" font-weight="700" font-size="12">ПОЛЬЗОВАТЕЛЬ</text><line x1="40" y1="86" x2="170" y2="86" class="acc-stroke" stroke-opacity=".3"/><text x="54" y="100" fill="#A0A0AC">PK user_id</text><text x="54" y="115" fill="#A0A0AC">login</text><text x="54" y="128" fill="#A0A0AC">role</text></g>
+                <g><rect x="220" y="50" width="130" height="84" rx="6" fill="#13131F" class="acc-stroke" stroke-width="1.5"/><rect x="220" y="50" width="130" height="22" rx="6" class="acc-fill"/><text x="234" y="66" fill="#FFFFFF" font-weight="700" font-size="12">СТУДЕНТ</text><line x1="220" y1="86" x2="350" y2="86" class="acc-stroke" stroke-opacity=".3"/><text x="234" y="100" fill="#A0A0AC">PK student_id</text><text x="234" y="113" fill="#A0A0AC">FK user_id</text><text x="234" y="126" fill="#FBBF24">group · email</text></g>
+                <g><rect x="40" y="240" width="160" height="84" rx="6" fill="#13131F" class="acc-stroke" stroke-width="1.5"/><rect x="40" y="240" width="160" height="22" rx="6" class="acc-fill"/><text x="54" y="256" fill="#FFFFFF" font-weight="700" font-size="12">ОРГАНИЗАЦИЯ</text><line x1="40" y1="276" x2="200" y2="276" class="acc-stroke" stroke-opacity=".3"/><text x="54" y="290" fill="#A0A0AC">PK company_id</text><text x="54" y="303" fill="#A0A0AC">name · ИНН · ОГРН</text><text x="54" y="316" fill="#A0A0AC">status · created_by</text></g>
+                <g><rect x="220" y="200" width="160" height="84" rx="6" fill="#13131F" class="acc-stroke" stroke-width="2"/><rect x="220" y="200" width="160" height="22" rx="6" class="acc-fill"/><text x="234" y="216" fill="#FFFFFF" font-weight="700" font-size="12">ЗАЯВКА</text><line x1="220" y1="236" x2="380" y2="236" class="acc-stroke" stroke-opacity=".3"/><text x="234" y="250" fill="#A0A0AC">PK application_id</text><text x="234" y="263" fill="#A0A0AC">FK student · company · practice</text><text x="234" y="276" fill="#FBBF24">date · type · status</text></g>
+                <g><rect x="430" y="200" width="100" height="84" rx="6" fill="#13131F" class="acc-stroke" stroke-width="1.5"/><rect x="430" y="200" width="100" height="22" rx="6" class="acc-fill"/><text x="444" y="216" fill="#FFFFFF" font-weight="700" font-size="12">ПРАКТИКА</text><line x1="430" y1="236" x2="530" y2="236" class="acc-stroke" stroke-opacity=".3"/><text x="444" y="250" fill="#A0A0AC">PK practice_id</text><text x="444" y="263" fill="#A0A0AC">type</text><text x="444" y="276" fill="#A0A0AC">date_start</text></g>
+                <g><rect x="190" y="350" width="200" height="86" rx="6" fill="#13131F" class="acc-stroke" stroke-width="1.5"/><rect x="190" y="350" width="200" height="22" rx="6" class="acc-fill"/><text x="204" y="366" fill="#FFFFFF" font-weight="700" font-size="12">ДОГОВОР</text><line x1="190" y1="386" x2="390" y2="386" class="acc-stroke" stroke-opacity=".3"/><text x="204" y="400" fill="#A0A0AC">PK contract_id · FK application_id</text><text x="204" y="413" fill="#A0A0AC">number · date_signed</text><text x="204" y="426" fill="#FBBF24">signed_by_org · signed_by_uni</text></g>
+              </g>
+              <g font-family="Inter" font-size="11" font-weight="700" fill="#FBBF24">
+                <text x="190" y="84">1:1</text><text x="280" y="170">1:N</text><text x="170" y="265">1:N</text><text x="395" y="232">N:1</text><text x="280" y="320">1:1</text>
+              </g>
+            </svg></div></div>
+    </div>
+    <div class="case">
+      <div>
+        <div class="case-num">КЕЙС 08</div>
+        <h3>Моделирование процессов AS-IS / TO-BE</h3>
+        <div class="ctx"><span>Оптимизация процесса</span><span>2025</span><span>Process modeling</span></div>
+        <h4>Что сделала</h4>
+        <ul><li>Описала текущие («как есть») и&nbsp;целевые («как должно быть») процессы организации</li><li>Идентифицировала <b>узкие места</b>: ручные операции, лишние шаги, риски согласования</li><li>Предложила оптимизации: автоматизация, ЭЦП-подпись, единая система</li><li>AS-IS&nbsp;7 шагов / 14 дней → TO-BE&nbsp;4 шага / 3 дня; <b>−78% времени</b></li></ul>
+        <h4>Стек</h4>
+        <div class="stack"><span class="tag acc">BPMN-подход</span><span class="tag acc">AS-IS / TO-BE</span><span class="tag">draw.io</span></div>
+      </div>
+      <div class="case-visual"><div class="case-visual-head"><div class="dots"><span></span><span></span><span></span></div><span>as_is_to_be.svg</span></div><div class="case-visual-body"><svg viewBox="0 0 520 400" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <text x="20" y="40" fill="#EF4444" font-family="Inter" font-size="11" font-weight="700" letter-spacing="2">AS-IS · 7 ШАГОВ</text>
+                <g font-family="Inter" font-size="10" fill="#A0A0AC">
+                  <g><rect x="20" y="56" width="60" height="36" rx="6" fill="#191926" stroke="#23232E"/><text x="50" y="78" text-anchor="middle">Заявка</text></g>
+                  <g><rect x="92" y="56" width="60" height="36" rx="6" fill="#191926" stroke="#23232E"/><text x="122" y="74" text-anchor="middle">Email-</text><text x="122" y="86" text-anchor="middle">переписка</text></g>
+                  <g><rect x="164" y="56" width="60" height="36" rx="6" fill="#191926" stroke="#23232E"/><text x="194" y="74" text-anchor="middle">Ручная</text><text x="194" y="86" text-anchor="middle">проверка</text></g>
+                  <g><rect x="236" y="56" width="60" height="36" rx="6" fill="#191926" stroke="#23232E"/><text x="266" y="74" text-anchor="middle">Бумажный</text><text x="266" y="86" text-anchor="middle">договор</text></g>
+                  <g><rect x="308" y="56" width="60" height="36" rx="6" fill="#EF4444" stroke="#EF4444" fill-opacity=".15"/><text x="338" y="74" text-anchor="middle" fill="#EF4444">Подпись</text><text x="338" y="86" text-anchor="middle" fill="#EF4444">офлайн</text></g>
+                  <g><rect x="380" y="56" width="60" height="36" rx="6" fill="#191926" stroke="#23232E"/><text x="410" y="74" text-anchor="middle">Скан</text><text x="410" y="86" text-anchor="middle">в архив</text></g>
+                  <g><rect x="452" y="56" width="60" height="36" rx="6" fill="#191926" stroke="#23232E"/><text x="482" y="74" text-anchor="middle">Excel-</text><text x="482" y="86" text-anchor="middle">отчёт</text></g>
+                </g>
+                <g stroke="#62626C" stroke-width="1" fill="none">
+                  <path d="M80 74 L 92 74"/><path d="M152 74 L 164 74"/><path d="M224 74 L 236 74"/><path d="M296 74 L 308 74"/><path d="M368 74 L 380 74"/><path d="M440 74 L 452 74"/>
+                </g>
+                <g font-family="Inter" font-size="9.5" fill="#EF4444">
+                  <text x="20" y="115">Узкие места: 7 шагов · 2 ручные операции · 1 офлайн-подпись · 3 системы</text>
+                  <text x="20" y="130">Длительность: ~14 дней · риски: потери документов, дубли</text>
+                </g>
+              </g>
+              <line x1="20" y1="170" x2="500" y2="170" stroke="#23232E" stroke-dasharray="4 4"/>
+              <g transform="translate(0,200)">
+                <text x="20" y="20" fill="#22C55E" font-family="Inter" font-size="11" font-weight="700" letter-spacing="2">TO-BE · 4 ШАГА</text>
+                <g font-family="Inter" font-size="10" fill="#EFEFF4">
+                  <g><rect x="20" y="36" width="100" height="44" rx="8" class="acc-fill-soft acc-stroke"/><text x="70" y="58" text-anchor="middle">Онлайн-заявка</text><text x="70" y="72" text-anchor="middle" fill="#A0A0AC">через ЛК</text></g>
+                  <g><rect x="140" y="36" width="100" height="44" rx="8" class="acc-fill-soft acc-stroke"/><text x="190" y="58" text-anchor="middle">Авто-валидация</text><text x="190" y="72" text-anchor="middle" fill="#A0A0AC">правил</text></g>
+                  <g><rect x="260" y="36" width="100" height="44" rx="8" fill="#22C55E" fill-opacity=".18" stroke="#22C55E"/><text x="310" y="58" text-anchor="middle" fill="#22C55E">ЭЦП-подпись</text><text x="310" y="72" text-anchor="middle" fill="#A0A0AC">обеими сторон.</text></g>
+                  <g><rect x="380" y="36" width="100" height="44" rx="8" class="acc-fill-soft acc-stroke"/><text x="430" y="58" text-anchor="middle">Дашборд</text><text x="430" y="72" text-anchor="middle" fill="#A0A0AC">в реальном вр.</text></g>
+                </g>
+                <g class="acc-stroke" stroke-width="1.5" fill="none">
+                  <path d="M120 58 L 140 58"/><path d="M240 58 L 260 58"/><path d="M360 58 L 380 58"/>
+                </g>
+                <g font-family="Inter" font-size="9.5" fill="#22C55E">
+                  <text x="20" y="105">Улучшения: −3 шага · 0 ручных операций · 1 единая система</text>
+                  <text x="20" y="120">Длительность: ~3 дня · −78% времени · аудит-trail из коробки</text>
+                </g>
+              </g>
+            </svg></div></div>
+    </div>
+    <div class="case">
+      <div>
+        <div class="case-num">КЕЙС 09</div>
+        <h3>Курсовая на C++ &mdash; конвертер позиционных систем счисления</h3>
+        <div class="ctx"><span>Курсовая работа</span><span>2024</span><span>МИРЭА · УИБО-07-23</span></div>
+        <h4>Что сделала</h4>
+        <ul><li>Реализовала программу-конвертер чисел между <b>позиционными системами счисления 1–16</b></li><li>Разработала модульную структуру: функции <code>displayMenu</code>, <code>isValidNumber</code>, <code>convertToDecimal</code>, <code>convertFromDecimal</code></li><li>Реализовала валидацию ввода и&nbsp;<b>обработку исключений</b> через <code>try/catch</code> и&nbsp;<code>overflow_error</code></li><li>Покрыла функциональность <b>9 тестовыми сценариями</b>, включая граничные случаи (UINT64, LLONG_MAX)</li><li>Оформила пояснительную записку и&nbsp;защитила работу</li></ul>
+        <h4>Стек</h4>
+        <div class="stack"><span class="tag acc">C++ 11/14/17</span><span class="tag">STL</span><span class="tag">iostream · string · cmath</span><span class="tag">stdexcept</span></div>
+      </div>
+      <div class="case-visual"><div class="case-visual-head"><div class="dots"><span></span><span></span><span></span></div><span>converter.cpp · фрагмент</span></div><div class="case-visual-body" style="padding:24px;align-items:flex-start;justify-content:flex-start"><pre><span class="com">// Безопасный конвертер: десятичная → произвольная база</span>
+<span class="kw">std::string</span> <span class="fn">convertFromDecimal</span>(<span class="kw">unsigned long long</span> n, <span class="kw">int</span> base) {
+    <span class="kw">if</span> (base &lt; <span class="num">2</span> || base &gt; <span class="num">16</span>)
+        <span class="kw">throw</span> <span class="typ">std::overflow_error</span>(<span class="str">"base out of range [2..16]"</span>);
 
+    <span class="kw">if</span> (n == <span class="num">0</span>) <span class="kw">return</span> <span class="str">"0"</span>;
+    <span class="kw">const std::string</span> digits = <span class="str">"0123456789ABCDEF"</span>;
+    <span class="typ">std::string</span> out;
+    <span class="kw">while</span> (n &gt; <span class="num">0</span>) {
+        out += digits[n % base];
+        n /= base;
+    }
+    <span class="typ">std::reverse</span>(out.<span class="fn">begin</span>(), out.<span class="fn">end</span>());
+    <span class="kw">return</span> out;
+}
+
+<span class="com">// Валидация: только символы из текущего алфавита</span>
+<span class="kw">bool</span> <span class="fn">isValidNumber</span>(<span class="kw">const std::string</span>&amp; s, <span class="kw">int</span> base) {
+    <span class="kw">for</span> (<span class="kw">char</span> c : s) {
+        <span class="kw">int</span> v = <span class="typ">std::isdigit</span>(c) ? c-<span class="str">'0'</span> : <span class="typ">std::toupper</span>(c)-<span class="str">'A'</span>+<span class="num">10</span>;
+        <span class="kw">if</span> (v &lt; <span class="num">0</span> || v &gt;= base) <span class="kw">return</span> <span class="kw">false</span>;
+    }
+    <span class="kw">return</span> !s.<span class="fn">empty</span>();
+}
+<span class="com">// 9 тестов:  255₁₀ → FF₁₆ · 1024₁₀ → 10000000000₂  · граничные UINT64</span></pre></div></div>
+    </div>
   </div>
 </section>
 
-<!-- ===== STACK MATRIX ===== -->
 <section id="stack">
   <div class="container">
     <span class="eyebrow">Стек и навыки</span>
     <h2>Чем владею</h2>
-    <div class="stack-matrix">
-      <div class="smr">
-        <div class="smc1">Нотации</div>
-        <div class="smc2">
-          <span class="tag">BPMN</span><span class="tag">AS-IS / TO-BE</span><span class="tag">CJM</span><span class="tag">JTBD</span><span class="tag">Stakeholder Map</span><span class="tag">SMART</span><span class="tag">Growth Matrix · BCG</span>
-        </div>
-      </div>
-      <div class="smr">
-        <div class="smc1">Методологии</div>
-        <div class="smc2">
-          <span class="tag">Agile</span><span class="tag">Design Thinking</span><span class="tag">CustDev</span><span class="tag">A/B-тесты</span><span class="tag">Конкурентный анализ</span><span class="tag">Pricing strategy</span>
-        </div>
-      </div>
-      <div class="smr">
-        <div class="smc1">Инструменты</div>
-        <div class="smc2">
-          <span class="tag">Figma</span><span class="tag">Miro</span><span class="tag">draw.io</span><span class="tag">MS Excel</span><span class="tag">MS PowerPoint</span><span class="tag">MS Word</span><span class="tag">Notion</span>
-        </div>
-      </div>
-      <div class="smr">
-        <div class="smc1">Данные</div>
-        <div class="smc2">
-          <span class="tag">SQL · MS SQL</span><span class="tag">Python (базово)</span><span class="tag">Excel · сводные</span>
-        </div>
-      </div>
-      <div class="smr">
-        <div class="smc1">Документы</div>
-        <div class="smc2">
-          <span class="tag">BRD</span><span class="tag">FRD</span><span class="tag">Продуктовая стратегия</span><span class="tag">Монетизационные модели</span><span class="tag">IT-аудит</span><span class="tag">Презентации</span>
-        </div>
-      </div>
-      <div class="smr">
-        <div class="smc1">Soft</div>
-        <div class="smc2">
-          <span class="tag">Командная работа</span><span class="tag">Управление группой</span><span class="tag">Презентация и защита</span><span class="tag">Структурное мышление</span><span class="tag">Ответственность</span>
-        </div>
-      </div>
-    </div>
+    <div class="stack-matrix"><div class="smr"><div class="smc1">Нотации</div><div class="smc2"><span class="tag">BPMN</span><span class="tag">AS-IS / TO-BE</span><span class="tag">IDEF0</span><span class="tag">IDEF1X</span><span class="tag">ER</span><span class="tag">CJM</span><span class="tag">JTBD</span><span class="tag">Stakeholder Map</span><span class="tag">SMART</span><span class="tag">Growth Matrix · BCG</span></div></div><div class="smr"><div class="smc1">Методологии</div><div class="smc2"><span class="tag">Agile</span><span class="tag">Design Thinking</span><span class="tag">CustDev</span><span class="tag">A/B-тесты</span><span class="tag">Конкурентный анализ</span><span class="tag">Pricing strategy</span></div></div><div class="smr"><div class="smc1">Инструменты</div><div class="smc2"><span class="tag">Figma</span><span class="tag">Miro</span><span class="tag">draw.io</span><span class="tag">MS Excel</span><span class="tag">MS PowerPoint</span><span class="tag">MS Word</span><span class="tag">Notion</span></div></div><div class="smr"><div class="smc1">Данные</div><div class="smc2"><span class="tag">SQL · MS SQL</span><span class="tag">PostgreSQL</span><span class="tag">Python (базово)</span><span class="tag">Excel · сводные</span></div></div><div class="smr"><div class="smc1">Документы</div><div class="smc2"><span class="tag">BRD</span><span class="tag">FRD</span><span class="tag">ТЗ (ГОСТ 34.602-89)</span><span class="tag">Продуктовая стратегия</span><span class="tag">Монетизационные модели</span><span class="tag">IT-аудит</span><span class="tag">Презентации</span></div></div><div class="smr"><div class="smc1">Soft</div><div class="smc2"><span class="tag">Командная работа</span><span class="tag">Управление группой</span><span class="tag">Презентация и защита</span><span class="tag">Структурное мышление</span><span class="tag">Ответственность</span></div></div></div>
   </div>
 </section>
 
-<!-- ===== EDUCATION ===== -->
 <section id="edu">
   <div class="container">
     <span class="eyebrow">Образование</span>
     <h2>Образование</h2>
-
     <div class="timeline" style="margin-top:48px">
       <div class="tl">
         <div class="when">2023 — 2027</div>
         <div class="what">МИРЭА — Российский технологический университет</div>
         <div class="where">Институт информационных технологий, бизнес-информатика · 3 курс, группа УИБО-07-23</div>
+      </div>
+      <div class="tl">
+        <div class="when">2024</div>
+        <div class="what">Курсовая на C++ · конвертер позиционных систем счисления</div>
+        <div class="where">Системы счисления 1–16, валидация ввода, обработка переполнения, перехват исключений. 9 тестовых сценариев.</div>
       </div>
       <div class="tl">
         <div class="when">2026</div>
@@ -586,13 +590,12 @@ footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:
   </div>
 </section>
 
-<!-- ===== ABOUT / CONTACT ===== -->
 <section id="contact">
   <div class="container">
     <div class="about-grid">
       <div>
         <span class="eyebrow">Контакты</span>
-        <h2>Junior Business Analyst<span style="color:var(--accent)">.</span></h2>
+        <h2>Junior Business Analyst<span style="color:var(--acc)">.</span></h2>
         <p class="muted" style="margin-top:18px;font-size:16px;max-width:480px">Удобный формат — гибрид или удалённо, готова к&nbsp;редким командировкам.</p>
         <div style="display:flex;gap:12px;margin-top:32px;flex-wrap:wrap">
           <a class="btn" href="Resume_Business_Analyst_Barotova_2pages.docx" download>Скачать 2-стр. резюме</a>
@@ -600,34 +603,17 @@ footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:
         </div>
       </div>
       <div class="contact-card">
-        <div class="cline">
-          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></div>
-          <div><div class="lbl">Телефон</div><div class="val">+7 (926) 058-27-87</div></div>
-        </div>
-        <div class="cline">
-          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <div><div class="lbl">Почта</div><div class="val">sabina.1998.barotova@mail.ru</div></div>
-        </div>
-        <div class="cline">
-          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div><div class="lbl">Локация</div><div class="val">Москва · гибрид / удалённо</div></div>
-        </div>
-        <div class="cline">
-          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 15.5l-9-9-9 9M12.5 6.5v15"/></svg></div>
-          <div><div class="lbl">Telegram</div><div class="val dim">[добавить @username]</div></div>
-        </div>
-        <div class="cline">
-          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div>
-          <div><div class="lbl">Портфолио</div><div class="val dim">[Google Drive / Notion — добавить]</div></div>
-        </div>
+        <div class="cline"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="lbl">Телефон</div><div class="val">+7 (926) 058-27-87</div></div></div>
+        <div class="cline"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="lbl">Почта</div><div class="val">sabina.1998.barotova@mail.ru</div></div></div>
+        <div class="cline"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="lbl">Локация</div><div class="val">Москва · гибрид / удалённо</div></div></div>
+        <div class="cline"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 15.5l-9-9-9 9M12.5 6.5v15"/></svg></div><div><div class="lbl">Telegram</div><div class="val dim">[добавить @username]</div></div></div>
+        <div class="cline"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div><div><div class="lbl">Портфолио</div><div class="val dim">[Google Drive / Notion — добавить]</div></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="container">© 2026 · Сабина Баротова · Junior Business Analyst</div>
-</footer>
+<footer><div class="container">© 2026 · Сабина Баротова · Junior Business Analyst</div></footer>
 
 </body>
 </html>
