@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Сабина Баротова — Junior Business Analyst</title>
+<style>
+:root{
+  --bg:#0A0A10;
+  --bg-card:#13131C;
+  --bg-soft:#191923;
+  --border:#23232E;
+  --text:#EFEFF4;
+  --text-2:#A0A0AC;
+  --text-3:#62626C;
+  --accent:#F59E0B;
+  --accent-2:#FBBF24;
+  --accent-soft:rgba(245,158,11,.10);
+  --accent-line:rgba(245,158,11,.35);
+  --good:#22C55E;
+  --warn:#EF4444;
+  --max:1180px;
+  --r:14px;
+  --r-sm:10px;
+  --r-lg:24px;
+  --shadow:0 8px 32px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI','SF Pro Display',-apple-system,BlinkMacSystemFont,Arial,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.55}
+body{overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.container{max-width:var(--max);margin:0 auto;padding:0 32px}
+section{padding:96px 0;position:relative}
+section + section{border-top:1px solid var(--border)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;padding:6px 12px;border:1px solid var(--accent-line);border-radius:999px;background:var(--accent-soft);margin-bottom:18px}
+.eyebrow::before{content:"";width:6px;height:6px;background:var(--accent);border-radius:50%}
+h1,h2,h3,h4{margin:0;font-weight:700;letter-spacing:-.02em;color:var(--text)}
+h1{font-size:64px;line-height:1.05}
+h2{font-size:38px;line-height:1.15}
+h3{font-size:22px;line-height:1.3}
+.muted{color:var(--text-2)}
+.dim{color:var(--text-3)}
+
+/* ===== NAV ===== */
+nav.top{position:sticky;top:0;z-index:50;background:rgba(10,10,16,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:18px 32px;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px;letter-spacing:.04em}
+.logo .dot{width:10px;height:10px;background:var(--accent);border-radius:3px;transform:rotate(45deg)}
+.nav-links{display:flex;gap:28px;font-size:13px;color:var(--text-2)}
+.nav-links a:hover{color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;font-size:13px;font-weight:600;background:var(--accent);color:#1A1208;border:none;cursor:pointer;transition:transform .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ===== HERO ===== */
+.hero{padding:120px 0 110px;overflow:hidden;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(60% 60% at 80% 0%,rgba(245,158,11,.10) 0%,transparent 60%),
+  radial-gradient(50% 50% at 0% 100%,rgba(245,158,11,.05) 0%,transparent 60%);
+  pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:64px;align-items:center;position:relative}
+.hero h1 span.acc{background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{font-size:18px;color:var(--text-2);margin:24px 0 36px;max-width:560px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:24px;font-size:13px;color:var(--text-2)}
+.hero-meta div b{color:var(--text);font-weight:600}
+
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:64px;padding-top:32px;border-top:1px solid var(--border)}
+.kpi{padding:0 20px;border-right:1px solid var(--border)}
+.kpi:last-child{border-right:none}
+.kpi .num{font-size:36px;font-weight:700;color:var(--accent);letter-spacing:-.02em}
+.kpi .lbl{font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+
+/* ===== SNAPSHOT ===== */
+.snap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.snap{padding:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);transition:border-color .2s}
+.snap:hover{border-color:var(--accent-line)}
+.snap-icon{width:44px;height:44px;border-radius:12px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:18px}
+.snap h3{font-size:17px;margin-bottom:14px}
+.snap ul{list-style:none;padding:0;margin:0}
+.snap li{font-size:13.5px;color:var(--text-2);padding:6px 0;display:flex;gap:10px}
+.snap li::before{content:"";width:5px;height:5px;background:var(--accent);border-radius:50%;flex:0 0 5px;margin-top:9px;opacity:.7}
+
+/* ===== CASES ===== */
+.case{display:grid;grid-template-columns:.92fr 1.08fr;gap:48px;padding:48px 0;border-bottom:1px solid var(--border)}
+.case:last-child{border-bottom:none}
+.case-num{font-size:13px;color:var(--accent);font-weight:600;letter-spacing:.12em;margin-bottom:8px;font-feature-settings:"tnum"}
+.case h3{font-size:28px;line-height:1.2;margin-bottom:14px;letter-spacing:-.01em}
+.case .ctx{font-size:13.5px;color:var(--text-3);margin-bottom:24px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.case .ctx span+span::before{content:"·";margin-right:14px;color:var(--text-3)}
+.case h4{font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:.16em;margin:24px 0 12px}
+.case ul{list-style:none;padding:0;margin:0}
+.case li{font-size:14px;color:var(--text);padding:8px 0;padding-left:22px;position:relative;line-height:1.55}
+.case li::before{content:"→";position:absolute;left:0;color:var(--accent);font-weight:700}
+.case .stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.tag{font-size:11px;font-family:'JetBrains Mono','Consolas',monospace;color:var(--text-2);padding:5px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-soft)}
+.tag.acc{color:var(--accent);border-color:var(--accent-line);background:var(--accent-soft)}
+
+.case-visual{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column}
+.case-visual-head{padding:14px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text-3);font-family:'JetBrains Mono','Consolas',monospace}
+.case-visual-head .dots{display:flex;gap:6px}
+.case-visual-head .dots span{width:9px;height:9px;border-radius:50%;background:#2A2A35}
+.case-visual-head .dots span:first-child{background:#3B3B45}
+.case-visual-body{padding:32px 28px;flex:1;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#13131C 0%,#0F0F18 100%)}
+.case-visual-body img{max-width:100%;height:auto;border-radius:var(--r-sm);box-shadow:0 4px 24px rgba(0,0,0,.4)}
+.case-visual-body svg{max-width:100%;height:auto;display:block}
+
+/* ===== STACK MATRIX ===== */
+.stack-matrix{margin-top:48px;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
+.smr{display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid var(--border)}
+.smr:last-child{border-bottom:none}
+.smr .smc1{padding:20px 24px;background:var(--bg-soft);font-size:13px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;display:flex;align-items:center;border-right:1px solid var(--border)}
+.smr .smc2{padding:20px 24px;display:flex;flex-wrap:wrap;gap:8px}
+.smr .smc2 .tag{font-size:12.5px;padding:6px 12px}
+
+/* ===== TIMELINE ===== */
+.timeline{position:relative;margin-top:40px;padding-left:32px}
+.timeline::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:var(--border)}
+.tl{position:relative;padding-bottom:28px}
+.tl::before{content:"";position:absolute;left:-32px;top:6px;width:20px;height:20px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.tl::after{content:"";position:absolute;left:-26px;top:12px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.tl .when{font-size:12px;color:var(--accent);font-weight:600;letter-spacing:.06em;margin-bottom:4px}
+.tl .what{font-size:16px;color:var(--text);font-weight:600}
+.tl .where{font-size:13.5px;color:var(--text-2);margin-top:2px}
+
+/* ===== ABOUT ===== */
+.about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start}
+.contact-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-lg);padding:32px}
+.cline{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--border)}
+.cline:last-child{border-bottom:none}
+.cline .ic{width:36px;height:36px;border-radius:8px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cline .lbl{font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:.08em}
+.cline .val{font-size:14px;color:var(--text);font-weight:500}
+
+/* ===== FOOTER ===== */
+footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:var(--text-3);text-align:center}
+
+@media (max-width: 920px){
+  h1{font-size:42px}
+  h2{font-size:28px}
+  .hero-grid,.about-grid{grid-template-columns:1fr;gap:48px}
+  .case{grid-template-columns:1fr;gap:24px}
+  .snap-grid{grid-template-columns:1fr}
+  .kpi-row{grid-template-columns:repeat(2,1fr)}
+  .kpi{border-bottom:1px solid var(--border);padding:16px 16px}
+  .smr{grid-template-columns:1fr}
+  .smr .smc1{border-right:none;border-bottom:1px solid var(--border)}
+  section{padding:64px 0}
+  .container{padding:0 20px}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="nav-inner">
+    <div class="logo"><span class="dot"></span> SABINA · BA</div>
+    <div class="nav-links">
+      <a href="#snapshot">Навыки</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#stack">Стек</a>
+      <a href="#timeline">Образование</a>
+      <a href="#contact">Контакты</a>
+    </div>
+    <a class="btn" href="Resume_Business_Analyst_Barotova_2pages.docx" download>Скачать резюме</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Junior Business Analyst · открыта к стажировкам и junior-ролям</span>
+        <h1>Сабина<br>Баротова<span class="acc">.</span></h1>
+        <p class="lead">Превращаю продуктовую гипотезу в&nbsp;структурированный документ — от&nbsp;карты стейкхолдеров и&nbsp;AS-IS/TO-BE до&nbsp;требований, монетизационной модели и&nbsp;защиты перед командой.</p>
+        <div class="hero-cta">
+          <a class="btn" href="Resume_Business_Analyst_Barotova_2pages.docx" download>Скачать PDF/DOCX</a>
+          <a class="btn ghost" href="#cases">Посмотреть кейсы →</a>
+        </div>
+        <div class="hero-meta">
+          <div><b>Москва</b> · гибрид/удалённо</div>
+          <div>МИРЭА · 3 курс · <b>2027</b></div>
+          <div>Доступна с <b>лета 2026</b></div>
+        </div>
+      </div>
+
+      <!-- Hero illustration: stakeholders network -->
+      <div>
+        <svg viewBox="0 0 520 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#F59E0B" stop-opacity=".25"/>
+              <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="line" x1="0" x2="1">
+              <stop offset="0%" stop-color="#F59E0B" stop-opacity=".0"/>
+              <stop offset="50%" stop-color="#F59E0B" stop-opacity=".75"/>
+              <stop offset="100%" stop-color="#F59E0B" stop-opacity=".0"/>
+            </linearGradient>
+          </defs>
+          <circle cx="260" cy="230" r="220" fill="url(#glow)"/>
+          <!-- Lines -->
+          <g stroke="url(#line)" stroke-width="1.5" fill="none">
+            <path d="M260 230 L 90 110"/>
+            <path d="M260 230 L 430 110"/>
+            <path d="M260 230 L 90 350"/>
+            <path d="M260 230 L 430 350"/>
+            <path d="M260 230 L 260 60"/>
+            <path d="M260 230 L 260 400"/>
+          </g>
+          <!-- Nodes -->
+          <g>
+            <!-- Center -->
+            <circle cx="260" cy="230" r="48" fill="#F59E0B"/>
+            <circle cx="260" cy="230" r="48" fill="none" stroke="#FBBF24" stroke-width="1.5"/>
+            <text x="260" y="226" text-anchor="middle" fill="#1A1208" font-family="Inter,sans-serif" font-size="13" font-weight="700">PRODUCT</text>
+            <text x="260" y="244" text-anchor="middle" fill="#1A1208" font-family="Inter,sans-serif" font-size="11" font-weight="500">VISION</text>
+            <!-- Satellites -->
+            <g font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#EFEFF4">
+              <g><circle cx="90" cy="110" r="32" fill="#13131C" stroke="#F59E0B" stroke-width="1.5"/><text x="90" y="113" text-anchor="middle">Users</text></g>
+              <g><circle cx="430" cy="110" r="32" fill="#13131C" stroke="#F59E0B" stroke-width="1.5"/><text x="430" y="113" text-anchor="middle">Business</text></g>
+              <g><circle cx="90" cy="350" r="32" fill="#13131C" stroke="#F59E0B" stroke-width="1.5"/><text x="90" y="353" text-anchor="middle">Data</text></g>
+              <g><circle cx="430" cy="350" r="32" fill="#13131C" stroke="#F59E0B" stroke-width="1.5"/><text x="430" y="353" text-anchor="middle">Tech</text></g>
+              <g><circle cx="260" cy="60" r="28" fill="#13131C" stroke="#F59E0B" stroke-width="1.5"/><text x="260" y="63" text-anchor="middle">Goals</text></g>
+              <g><circle cx="260" cy="400" r="28" fill="#13131C" stroke="#F59E0B" stroke-width="1.5"/><text x="260" y="403" text-anchor="middle">Metrics</text></g>
+            </g>
+          </g>
+          <!-- floating dots -->
+          <g fill="#F59E0B" opacity=".5">
+            <circle cx="170" cy="170" r="2"/>
+            <circle cx="350" cy="170" r="2"/>
+            <circle cx="170" cy="290" r="2"/>
+            <circle cx="350" cy="290" r="2"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi"><div class="num">9</div><div class="lbl">Учебных кейсов</div></div>
+      <div class="kpi"><div class="num">5</div><div class="lbl">Конкурентов в анализе StudyHall</div></div>
+      <div class="kpi"><div class="num">4</div><div class="lbl">Группы стейкхолдеров (ВкусВилл)</div></div>
+      <div class="kpi"><div class="num">~9 мес</div><div class="lbl">Окупаемость в продуктовом кейсе</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SNAPSHOT ===== -->
+<section id="snapshot">
+  <div class="container">
+    <span class="eyebrow">Снимок навыков</span>
+    <h2>Что я делаю как бизнес-аналитик</h2>
+    <p class="muted" style="max-width:680px;margin-top:14px;font-size:16px">Работаю на стыке продукта и&nbsp;данных. Беру задачу заказчика — выдаю карту стейкхолдеров, AS-IS/TO-BE, метрики, список требований и&nbsp;презентацию для защиты.</p>
+
+    <div class="snap-grid">
+      <div class="snap">
+        <div class="snap-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg>
+        </div>
+        <h3>Нотации и фреймворки</h3>
+        <ul>
+          <li>BPMN, AS-IS / TO-BE</li>
+          <li>Customer Journey Map</li>
+          <li>Jobs-to-be-Done (JTBD)</li>
+          <li>Stakeholder Map · SMART</li>
+          <li>Growth Matrix · BCG</li>
+        </ul>
+      </div>
+      <div class="snap">
+        <div class="snap-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+        </div>
+        <h3>Методологии</h3>
+        <ul>
+          <li>Agile, Design Thinking</li>
+          <li>CustDev-интервью, опросы</li>
+          <li>Конкурентный анализ</li>
+          <li>A/B-тестирование</li>
+          <li>Pricing strategy · ARPU/LTV</li>
+        </ul>
+      </div>
+      <div class="snap">
+        <div class="snap-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2v6h6M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M10 12h4M8 16h8"/></svg>
+        </div>
+        <h3>Артефакты и инструменты</h3>
+        <ul>
+          <li>BRD · FRD · продуктовая стратегия</li>
+          <li>Монетизационные модели</li>
+          <li>Figma · Miro · draw.io</li>
+          <li>MS Excel · Notion · MS Word</li>
+          <li>SQL (MS SQL), Python (базово)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CASES ===== -->
+<section id="cases">
+  <div class="container">
+    <span class="eyebrow">Учебные кейсы</span>
+    <h2>Проекты, на которых я росла</h2>
+    <p class="muted" style="max-width:720px;margin-top:14px;font-size:16px">Командные и&nbsp;индивидуальные кейсы из&nbsp;программы бизнес-информатики МИРЭА (УИБО-07-23) и&nbsp;продуктовых стажировок Eduson Academy.</p>
+
+    <!-- Case 1: ВкусВилл -->
+    <div class="case">
+      <div>
+        <div class="case-num">КЕЙС 01</div>
+        <h3>Стратегический анализ ВкусВилл</h3>
+        <div class="ctx"><span>Командный (4 чел.)</span><span>2025</span><span>Retail · Healthy food</span></div>
+
+        <h4>Что сделала</h4>
+        <ul>
+          <li>Разобрала миссию и&nbsp;экосистему по&nbsp;фреймворку <b>SMART</b></li>
+          <li>Описала ценность для <b>4 групп стейкхолдеров</b>: покупатели, сотрудники, поставщики, общество</li>
+          <li>Построила <b>Growth Matrix</b>: позиция компании <b>14,9% / 26,7%</b> — выше квадранта здорового роста</li>
+          <li>Сформулировала рекомендации по&nbsp;развитию экосистемы</li>
+          <li>Подготовила и&nbsp;защитила презентацию перед комиссией</li>
+        </ul>
+
+        <h4>Стек</h4>
+        <div class="stack">
+          <span class="tag acc">SMART</span>
+          <span class="tag acc">Stakeholder Map</span>
+          <span class="tag acc">Growth Matrix</span>
+          <span class="tag">MS PowerPoint</span>
+          <span class="tag">MS Word</span>
+        </div>
+      </div>
+
+      <div class="case-visual">
+        <div class="case-visual-head">
+          <div class="dots"><span></span><span></span><span></span></div>
+          <span>stakeholder_map.svg</span>
+        </div>
+        <div class="case-visual-body">
+          <!-- Stakeholder map SVG -->
+          <svg viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="sm-link" x1="0" x2="1">
+                <stop offset="0" stop-color="#F59E0B" stop-opacity=".15"/>
+                <stop offset="1" stop-color="#F59E0B" stop-opacity=".55"/>
+              </linearGradient>
+            </defs>
+            <!-- Lines -->
+            <g stroke="url(#sm-link)" stroke-width="2" fill="none">
+              <path d="M250 190 L 110 70"/>
+              <path d="M250 190 L 390 70"/>
+              <path d="M250 190 L 110 310"/>
+              <path d="M250 190 L 390 310"/>
+            </g>
+            <!-- Center -->
+            <circle cx="250" cy="190" r="62" fill="#F59E0B"/>
+            <circle cx="250" cy="190" r="62" fill="none" stroke="#FBBF24" stroke-width="1.5"/>
+            <text x="250" y="184" text-anchor="middle" fill="#1A1208" font-family="Inter,sans-serif" font-size="11" font-weight="700">МИССИЯ</text>
+            <text x="250" y="200" text-anchor="middle" fill="#1A1208" font-family="Inter,sans-serif" font-size="10">экосистема</text>
+            <text x="250" y="214" text-anchor="middle" fill="#1A1208" font-family="Inter,sans-serif" font-size="10">здорового</text>
+            <text x="250" y="228" text-anchor="middle" fill="#1A1208" font-family="Inter,sans-serif" font-size="10">образа жизни</text>
+            <!-- Satellites -->
+            <g font-family="Inter,sans-serif" font-weight="600" fill="#EFEFF4">
+              <g>
+                <rect x="50" y="36" width="120" height="68" rx="10" fill="#191923" stroke="#F59E0B" stroke-width="1.5"/>
+                <text x="110" y="68" text-anchor="middle" font-size="13">Покупатели</text>
+                <text x="110" y="86" text-anchor="middle" font-size="10" fill="#A0A0AC">B2C · LTV · NPS</text>
+              </g>
+              <g>
+                <rect x="330" y="36" width="120" height="68" rx="10" fill="#191923" stroke="#F59E0B" stroke-width="1.5"/>
+                <text x="390" y="68" text-anchor="middle" font-size="13">Сотрудники</text>
+                <text x="390" y="86" text-anchor="middle" font-size="10" fill="#A0A0AC">eNPS · retention</text>
+              </g>
+              <g>
+                <rect x="50" y="276" width="120" height="68" rx="10" fill="#191923" stroke="#F59E0B" stroke-width="1.5"/>
+                <text x="110" y="308" text-anchor="middle" font-size="13">Поставщики</text>
+                <text x="110" y="326" text-anchor="middle" font-size="10" fill="#A0A0AC">SLA · качество</text>
+              </g>
+              <g>
+                <rect x="330" y="276" width="120" height="68" rx="10" fill="#191923" stroke="#F59E0B" stroke-width="1.5"/>
+                <text x="390" y="308" text-anchor="middle" font-size="13">Общество</text>
+                <text x="390" y="326" text-anchor="middle" font-size="10" fill="#A0A0AC">ESG · влияние</text>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="case-visual-head" style="border-top:1px solid var(--border);border-bottom:none">
+          <span>growth_matrix.png · фрагмент защиты</span>
+          <span style="color:var(--accent)">14,9% / 26,7%</span>
+        </div>
+        <div class="case-visual-body" style="padding:16px">
+          <img src="../assets/vkusvill_01.png" alt="Growth Matrix ВкусВилл — 14,9% / 26,7%">
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 2: StudyHall -->
+    <div class="case">
+      <div>
+        <div class="case-num">КЕЙС 02</div>
+        <h3>2D-симулятор Studyhall &mdash; продуктовая стратегия</h3>
+        <div class="ctx"><span>Учебный продуктовый кейс</span><span>2025</span><span>EdTech · Gamified learning</span></div>
+
+        <h4>Что сделала</h4>
+        <ul>
+          <li>Конкурентный анализ <b>5 EdTech-платформ</b> (Quizlet, Anki, Kahoot, StudySmarter, Memrise) по&nbsp;8 параметрам</li>
+          <li>Сформулировала value proposition «<b>immersive 2D + AI tutor</b>», свободная ниша</li>
+          <li>Сегментировала аудиторию на&nbsp;<b>4 группы</b> и&nbsp;описала их JTBD</li>
+          <li>Спроектировала продуктовую механику: 3 зоны кампуса, 5 уровней прогрессии, формула XP с&nbsp;8 переменными</li>
+          <li>Монетизационная модель: 3-tier подписка <b>749 / 1 189 ₽/мес</b>, B2B-лицензии <b>13 990 — 99 990 ₽</b>, ARPU <b>969 / 1 798 ₽</b></li>
+          <li>Финансовая модель: окупаемость <b>~9 мес.</b> при 5 000 пользователей и&nbsp;выручке <b>8,99 М ₽</b></li>
+        </ul>
+
+        <h4>Стек</h4>
+        <div class="stack">
+          <span class="tag acc">JTBD</span>
+          <span class="tag acc">Конкурентный анализ</span>
+          <span class="tag acc">Pricing strategy</span>
+          <span class="tag acc">ARPU/LTV</span>
+          <span class="tag">Figma</span>
+          <span class="tag">MS Excel</span>
+        </div>
+      </div>
+
+      <div class="case-visual">
+        <div class="case-visual-head">
+          <div class="dots"><span></span><span></span><span></span></div>
+          <span>competitive_matrix.svg</span>
+        </div>
+        <div class="case-visual-body">
+          <!-- Competitive matrix 2x2 -->
+          <svg viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg">
+            <!-- Axis labels -->
+            <text x="250" y="22" text-anchor="middle" fill="#A0A0AC" font-family="Inter" font-size="10" letter-spacing="2">+ AI ASSESSMENT</text>
+            <text x="250" y="370" text-anchor="middle" fill="#A0A0AC" font-family="Inter" font-size="10" letter-spacing="2">— FLASHCARDS / DRILL</text>
+            <text x="14" y="195" text-anchor="middle" fill="#A0A0AC" font-family="Inter" font-size="10" letter-spacing="2" transform="rotate(-90 14 195)">— BASIC GAMIFICATION</text>
+            <text x="486" y="195" text-anchor="middle" fill="#A0A0AC" font-family="Inter" font-size="10" letter-spacing="2" transform="rotate(90 486 195)">+ IMMERSIVE WORLD</text>
+            <!-- Quadrants -->
+            <rect x="60" y="40" width="380" height="310" fill="none" stroke="#23232E" stroke-width="1"/>
+            <line x1="60" y1="195" x2="440" y2="195" stroke="#23232E" stroke-dasharray="4 4"/>
+            <line x1="250" y1="40" x2="250" y2="350" stroke="#23232E" stroke-dasharray="4 4"/>
+            <!-- Competitors -->
+            <g font-family="Inter,sans-serif" font-size="11" fill="#A0A0AC">
+              <g><circle cx="120" cy="280" r="6" fill="#62626C"/><text x="132" y="284">Anki</text></g>
+              <g><circle cx="160" cy="240" r="6" fill="#62626C"/><text x="172" y="244">Quizlet</text></g>
+              <g><circle cx="195" cy="160" r="6" fill="#62626C"/><text x="207" y="164">StudySmarter</text></g>
+              <g><circle cx="320" cy="290" r="6" fill="#62626C"/><text x="332" y="294">Kahoot</text></g>
+              <g><circle cx="280" cy="220" r="6" fill="#62626C"/><text x="292" y="224">Memrise</text></g>
+            </g>
+            <!-- Studyhall -->
+            <g>
+              <circle cx="380" cy="100" r="14" fill="#F59E0B"/>
+              <circle cx="380" cy="100" r="22" fill="none" stroke="#F59E0B" stroke-opacity=".4"/>
+              <circle cx="380" cy="100" r="32" fill="none" stroke="#F59E0B" stroke-opacity=".15"/>
+              <text x="380" y="80" text-anchor="middle" fill="#F59E0B" font-family="Inter" font-size="13" font-weight="700">STUDYHALL</text>
+              <text x="380" y="125" text-anchor="middle" fill="#FBBF24" font-family="Inter" font-size="10">free niche</text>
+            </g>
+          </svg>
+        </div>
+        <div class="case-visual-head" style="border-top:1px solid var(--border);border-bottom:none">
+          <span>studyhall_screen.png · продукт</span>
+          <span style="color:var(--accent)">Year 1 · XP 0/100</span>
+        </div>
+        <div class="case-visual-body" style="padding:16px">
+          <img src="../assets/studyhall_title.png" alt="2D-симулятор Studyhall — игровой кампус">
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 3: Eduson architecture -->
+    <div class="case">
+      <div>
+        <div class="case-num">КЕЙС 03</div>
+        <h3>Бизнес-архитектура Eduson Academy</h3>
+        <div class="ctx"><span>Системный анализ организации</span><span>2025</span><span>EdTech · LMS</span></div>
+
+        <h4>Что сделала</h4>
+        <ul>
+          <li>Построила диаграмму «<b>Структура входов и&nbsp;выходов организации</b>»</li>
+          <li>Описала внешнюю среду: поставщики тех., рынок труда, инвесторы, регуляторы (<b>ФЗ-152, Рособрнадзор</b>)</li>
+          <li>Разделила входы на&nbsp;материальные (LMS, ПО, оборудование) и&nbsp;нематериальные (данные, труд, знания экспертов)</li>
+          <li>Описала ценность для <b>3 групп потребителей</b>: B2C-студенты, B2B-клиенты, общество (рынок труда)</li>
+          <li>Согласовала диаграмму с&nbsp;командой и&nbsp;презентовала результат</li>
+        </ul>
+
+        <h4>Стек</h4>
+        <div class="stack">
+          <span class="tag acc">Системный анализ</span>
+          <span class="tag acc">IDEF0-подход</span>
+          <span class="tag">draw.io</span>
+          <span class="tag">MS PowerPoint</span>
+        </div>
+      </div>
+
+      <div class="case-visual">
+        <div class="case-visual-head">
+          <div class="dots"><span></span><span></span><span></span></div>
+          <span>io_structure_diagram.png</span>
+        </div>
+        <div class="case-visual-body" style="padding:16px;background:#FAFAFA">
+          <img src="../assets/eduson46_io_structure.png" alt="Структура входов и выходов организации Eduson Academy">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== STACK MATRIX ===== -->
+<section id="stack">
+  <div class="container">
+    <span class="eyebrow">Стек и навыки</span>
+    <h2>Чем владею</h2>
+    <div class="stack-matrix">
+      <div class="smr">
+        <div class="smc1">Нотации</div>
+        <div class="smc2">
+          <span class="tag">BPMN</span><span class="tag">AS-IS / TO-BE</span><span class="tag">CJM</span><span class="tag">JTBD</span><span class="tag">Stakeholder Map</span><span class="tag">SMART</span><span class="tag">Growth Matrix · BCG</span>
+        </div>
+      </div>
+      <div class="smr">
+        <div class="smc1">Методологии</div>
+        <div class="smc2">
+          <span class="tag">Agile</span><span class="tag">Design Thinking</span><span class="tag">CustDev</span><span class="tag">A/B-тесты</span><span class="tag">Конкурентный анализ</span><span class="tag">Pricing strategy</span>
+        </div>
+      </div>
+      <div class="smr">
+        <div class="smc1">Инструменты</div>
+        <div class="smc2">
+          <span class="tag">Figma</span><span class="tag">Miro</span><span class="tag">draw.io</span><span class="tag">MS Excel</span><span class="tag">MS PowerPoint</span><span class="tag">MS Word</span><span class="tag">Notion</span>
+        </div>
+      </div>
+      <div class="smr">
+        <div class="smc1">Данные</div>
+        <div class="smc2">
+          <span class="tag">SQL · MS SQL</span><span class="tag">Python (базово)</span><span class="tag">Excel · сводные</span>
+        </div>
+      </div>
+      <div class="smr">
+        <div class="smc1">Документы</div>
+        <div class="smc2">
+          <span class="tag">BRD</span><span class="tag">FRD</span><span class="tag">Продуктовая стратегия</span><span class="tag">Монетизационные модели</span><span class="tag">Презентации защиты</span>
+        </div>
+      </div>
+      <div class="smr">
+        <div class="smc1">Soft</div>
+        <div class="smc2">
+          <span class="tag">Командная работа</span><span class="tag">Управление группой</span><span class="tag">Презентация</span><span class="tag">Структурное мышление</span><span class="tag">Ответственность</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TIMELINE ===== -->
+<section id="timeline">
+  <div class="container">
+    <span class="eyebrow">Образование и курсы</span>
+    <h2>Как училась</h2>
+
+    <div class="timeline" style="margin-top:48px">
+      <div class="tl">
+        <div class="when">2023 — 2027 (ожидается)</div>
+        <div class="what">МИРЭА — Российский технологический университет</div>
+        <div class="where">Институт информационных технологий, бизнес-информатика · 3 курс, группа УИБО-07-23</div>
+      </div>
+      <div class="tl">
+        <div class="when">2026</div>
+        <div class="what">Eduson Academy — «Продуктовый маркетолог»</div>
+        <div class="where">Курс по продуктовому маркетингу: CJM, JTBD, A/B-тесты, CustDev, медиапланирование</div>
+      </div>
+      <div class="tl">
+        <div class="when">2024</div>
+        <div class="what">YudaevSchool — «Дизайнер в Digital»</div>
+        <div class="where">Курс по веб-дизайну в Figma: основы UX/UI, креативы, дизайн-система</div>
+      </div>
+      <div class="tl">
+        <div class="when">июнь — август 2024</div>
+        <div class="what">Координатор полевой экспедиции · Биофак МГУ</div>
+        <div class="where">Озеро Кара-Холь, Тыва. Группа из 10 детей. Логистика, безопасность, коммуникации со&nbsp;стейкхолдерами.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT / CONTACT ===== -->
+<section id="contact">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <span class="eyebrow">Контакты</span>
+        <h2>Ищу позицию<br>Junior Business Analyst<span style="color:var(--accent)">.</span></h2>
+        <p class="muted" style="margin-top:18px;font-size:16px;max-width:480px">Открыта к&nbsp;стажировкам, junior-ролям и&nbsp;проектной работе. Удобный формат — гибрид или удалённо, готова к&nbsp;редким командировкам.</p>
+        <div style="display:flex;gap:12px;margin-top:32px;flex-wrap:wrap">
+          <a class="btn" href="Resume_Business_Analyst_Barotova_2pages.docx" download>Скачать 2-стр. резюме</a>
+          <a class="btn ghost" href="Resume_Business_Analyst_Barotova_1page.docx" download>1-стр. версия</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="cline">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div><div class="lbl">Телефон</div><div class="val">+7 (926) 058-27-87</div></div>
+        </div>
+        <div class="cline">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><div class="lbl">Почта</div><div class="val">sabina.1998.barotova@mail.ru</div></div>
+        </div>
+        <div class="cline">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="lbl">Локация</div><div class="val">Москва · гибрид / удалённо</div></div>
+        </div>
+        <div class="cline">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 15.5l-9-9-9 9M12.5 6.5v15"/></svg></div>
+          <div><div class="lbl">Telegram</div><div class="val dim">[добавить @username]</div></div>
+        </div>
+        <div class="cline">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div>
+          <div><div class="lbl">Портфолио</div><div class="val dim">[Google Drive / Notion — добавить]</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">© 2026 · Сабина Баротова · Junior Business Analyst · собрано как одностраничный лендинг по&nbsp;учебным кейсам</div>
+</footer>
+
+</body>
+</html>
