@@ -73,7 +73,11 @@ nav.top{position:sticky;top:0;z-index:50;background:rgba(10,10,16,.85);backdrop-
 .photo-tag{position:absolute;bottom:18px;left:18px;background:rgba(10,10,16,.85);backdrop-filter:blur(8px);padding:8px 14px;border-radius:999px;border:1px solid var(--border);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);font-weight:700;display:flex;align-items:center;gap:8px}
 .photo-tag::before{content:"";width:6px;height:6px;background:var(--acc);border-radius:50%}
 
-.focus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.focus-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:48px}
+.skills-map{margin-top:40px}
+.skills-map .sm-label{font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:.16em;font-weight:600;margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;background:#1C1C27;border:1px solid #2E2E3A;border-radius:10px;padding:10px 18px;font-size:13.5px;color:var(--text);font-weight:500}
 .focus{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-lg);padding:32px;position:relative;overflow:hidden}
 .focus::before{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none}
 .focus.f1::before{background:radial-gradient(60% 60% at 0% 0%,var(--acc-soft) 0%,transparent 60%)}
@@ -200,9 +204,8 @@ footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:
   <div class="nav-inner">
     <div class="logo"><span class="dot"></span> Sabina Barotova</div>
     <div class="nav-links">
-      <a href="#focus">Что я делаю</a>
+      <a href="#focus">Навыки</a>
       <a href="#cases">Кейсы</a>
-      <a href="#stack">Навыки</a>
       <a href="#edu">Образование</a>
       <a href="#contact">Контакты</a>
     </div>
@@ -240,41 +243,49 @@ footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:
 <section id="focus">
   <div class="container">
     <span class="eyebrow">Фокус</span>
-    <h2>Что я закрываю</h2>
-    <p class="muted" style="margin-top:16px;font-size:16px;max-width:640px">Три направления, в&nbsp;которых сходятся мои учебные кейсы, курс продуктового маркетинга и&nbsp;аналитическая база. Особенно интересен B2B — продукты с&nbsp;длинными сделками и&nbsp;сложным циклом решения.</p>
+    <h2>Навыки</h2>
+    <p class="muted" style="margin-top:16px;font-size:16px;max-width:640px">Два направления, в&nbsp;которых сходятся учебные кейсы, курс ДПО по&nbsp;продуктовому маркетингу и&nbsp;аналитическая база. Особенно интересен B2B — продукты с&nbsp;длинными сделками и&nbsp;сложным циклом решения.</p>
     <div class="focus-grid">
       <div class="focus f1">
-        <div class="f-num">01 · ПРОДУКТ</div>
-        <h3>Продуктовые исследования и&nbsp;маркетинг</h3>
-        <p>От конкурентного поля до упаковки ценности и&nbsp;экономики продукта.</p>
+        <div class="f-num">01 · ПРОДУКТОВАЯ АНАЛИТИКА</div>
+        <h3>Продуктовая аналитика</h3>
+        <p>Почему продукт покупают или не&nbsp;покупают — и&nbsp;что в&nbsp;нём менять.</p>
         <ul>
           <li>Конкурентный анализ и&nbsp;карты рынка</li>
           <li>JTBD, сегментация, value proposition</li>
-          <li>Прайсинг, монетизация, финмодели</li>
-          <li>Презентация и&nbsp;защита решений</li>
-        </ul>
-      </div>
-      <div class="focus f2">
-        <div class="f-num">02 · АНАЛИТИКА</div>
-        <h3>Аналитика процессов и&nbsp;сделок</h3>
-        <p>Качественные данные → структура → выводы, на&nbsp;которые можно опереться.</p>
-        <ul>
-          <li>Интервью по&nbsp;методике CustDev</li>
-          <li>Карта пути клиента (CJM) и&nbsp;стейкхолдеров</li>
-          <li>AS-IS / TO-BE, поиск узких мест</li>
-          <li>Excel-аналитика, сводные, отчёты</li>
+          <li>CJM и&nbsp;интервью по&nbsp;методике CustDev</li>
+          <li>Прайсинг, монетизация, финмодели (ARPU / LTV)</li>
+          <li>A/B-тесты и&nbsp;тестирование маркетинговых кампаний</li>
         </ul>
       </div>
       <div class="focus f3">
-        <div class="f-num">03 · ТРЕБОВАНИЯ</div>
-        <h3>Требования и&nbsp;документация</h3>
-        <p>Формальные документы, которые понимают и&nbsp;бизнес, и&nbsp;разработка, и&nbsp;госзаказчик.</p>
+        <div class="f-num">02 · БИЗНЕС-АНАЛИТИКА</div>
+        <h3>Бизнес-аналитика</h3>
+        <p>Процессы, требования и&nbsp;документы, на&nbsp;которые можно опереться.</p>
         <ul>
-          <li>ТЗ по&nbsp;ГОСТ 34.602-89 / 19.201-78</li>
-          <li>BRD / FRD, систематизация требований</li>
+          <li>AS-IS / TO-BE, поиск узких мест процесса</li>
+          <li>ТЗ по&nbsp;ГОСТ 34.602-89 / 19.201-78, BRD / FRD</li>
           <li>IDEF0 / IDEF1X, ER-модели</li>
-          <li>IT-аудит по&nbsp;метрикам</li>
+          <li>Карта стейкхолдеров, SMART, Growth Matrix</li>
+          <li>IT-аудит по&nbsp;метрикам, Excel-аналитика</li>
         </ul>
+      </div>
+    </div>
+    <div class="skills-map">
+      <div class="sm-label">Ключевые навыки</div>
+      <div class="chips">
+        <span class="chip">Маркетинговый анализ</span>
+        <span class="chip">CJM</span>
+        <span class="chip">JTBD</span>
+        <span class="chip">A/B-тесты</span>
+        <span class="chip">CustDev</span>
+        <span class="chip">Тестирование маркетинговых кампаний</span>
+        <span class="chip">Медиапланирование</span>
+        <span class="chip">Креативы в Figma</span>
+        <span class="chip">MS Excel</span>
+        <span class="chip">MS SQL</span>
+        <span class="chip">Программирование Python</span>
+        <span class="chip">Программирование C++</span>
       </div>
     </div>
   </div>
@@ -562,14 +573,6 @@ footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:
         <span class="mc-link">Смотреть в SA-лендинге →</span>
       </a>
     </div>
-  </div>
-</section>
-
-<section id="stack">
-  <div class="container">
-    <span class="eyebrow">Стек и навыки</span>
-    <h2>Чем владею</h2>
-    <div class="stack-matrix"><div class="smr"><div class="smc1">Продукт</div><div class="smc2"><span class="tag acc">Конкурентный анализ</span><span class="tag acc">JTBD</span><span class="tag acc">CJM</span><span class="tag acc">CustDev</span><span class="tag acc">Pricing strategy</span><span class="tag acc">ARPU / LTV</span><span class="tag">A/B-тесты</span><span class="tag">Сегментация</span></div></div><div class="smr"><div class="smc1">Нотации</div><div class="smc2"><span class="tag">BPMN</span><span class="tag">AS-IS / TO-BE</span><span class="tag">IDEF0</span><span class="tag">IDEF1X</span><span class="tag">ER</span><span class="tag">Stakeholder Map</span><span class="tag">SMART</span><span class="tag">Growth Matrix · BCG</span></div></div><div class="smr"><div class="smc1">Документы</div><div class="smc2"><span class="tag gost">ТЗ (ГОСТ 34.602-89)</span><span class="tag">BRD</span><span class="tag">FRD</span><span class="tag">Продуктовая стратегия</span><span class="tag">Монетизационные модели</span><span class="tag">IT-аудит</span><span class="tag">Презентации</span></div></div><div class="smr"><div class="smc1">Инструменты</div><div class="smc2"><span class="tag">Figma</span><span class="tag">Miro</span><span class="tag">draw.io</span><span class="tag">MS Excel</span><span class="tag">MS PowerPoint</span><span class="tag">MS Word</span><span class="tag">Notion</span></div></div><div class="smr"><div class="smc1">Данные</div><div class="smc2"><span class="tag">SQL · MS SQL</span><span class="tag">PostgreSQL</span><span class="tag">Python (базово)</span><span class="tag">Excel · сводные</span></div></div><div class="smr"><div class="smc1">Soft</div><div class="smc2"><span class="tag">Командная работа</span><span class="tag">Управление группой</span><span class="tag">Презентация и защита</span><span class="tag">Структурное мышление</span><span class="tag">Ответственность</span></div></div></div>
   </div>
 </section>
 
