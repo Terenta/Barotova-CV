@@ -123,6 +123,8 @@ nav.top{position:sticky;top:0;z-index:50;background:rgba(10,10,16,.85);backdrop-
 .case-visual-body{padding:32px 28px;flex:1;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--bg-card) 0%,#0F0F18 100%)}
 .case-visual-body img{max-width:100%;height:auto;border-radius:10px;box-shadow:0 4px 24px rgba(0,0,0,.4)}
 .case-visual-body svg{max-width:100%;height:auto;display:block}
+.case-visual-body pre{margin:0;width:100%;font-family:'JetBrains Mono','Consolas',monospace;font-size:11.5px;line-height:1.6;color:#D4D4DA;background:transparent;overflow:auto;white-space:pre}
+.kw{color:#C586C0} .typ{color:#4EC9B0} .str{color:#CE9178} .num{color:#B5CEA8} .com{color:#6A9955;font-style:italic} .fn{color:#DCDCAA}
 
 /* SVG accent helpers */
 .acc-fill{fill:var(--acc)}
@@ -620,25 +622,118 @@ footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:
       <div class="case-visual"><div class="case-visual-head"><div class="dots"><span></span><span></span><span></span></div><span>io_structure.png</span></div><div class="case-visual-body" style="padding:16px;background:#FAFAFA"><img src="assets/eduson46_io_structure.png" alt="Структура входов и выходов организации Eduson Academy"></div></div>
     </div>
 
-    <div class="more-cases">
-      <a class="mc" href="ba/">
-        <div class="mc-num">КЕЙС 08 · BA-ВЕРСИЯ</div>
-        <h3>Техническая архитектура Studyhall</h3>
-        <p>4-слойная архитектура (Frontend / Backend / ML·AI / DevOps), REST API, AI-оценивание с RAG-пайплайном, схема PostgreSQL.</p>
-        <span class="mc-link">Смотреть в BA-лендинге →</span>
-      </a>
-      <a class="mc sa-flav" href="sa/">
-        <div class="mc-num">КЕЙС 09 · SA-ВЕРСИЯ</div>
-        <h3>Модель данных IDEF1X</h3>
-        <p>Логическая модель на 6 сущностей: ключи, связи 1:N, бизнес-правила, проверка нормализации (3НФ).</p>
-        <span class="mc-link">Смотреть в SA-лендинге →</span>
-      </a>
-      <a class="mc sa-flav" href="sa/">
-        <div class="mc-num">КЕЙС 10 · SA-ВЕРСИЯ</div>
-        <h3>Курсовая на C++ — конвертер систем счисления</h3>
-        <p>Системы счисления 1–16, модульная структура, валидация и обработка исключений, 9 тестовых сценариев.</p>
-        <span class="mc-link">Смотреть в SA-лендинге →</span>
-      </a>
+    <div class="case">
+      <div>
+        <div class="case-num">КЕЙС 08</div>
+        <h3>Studyhall &mdash; техническая архитектура EdTech-симулятора</h3>
+        <div class="ctx"><span>Системный кейс</span><span>2025</span><span>EdTech · AI · RAG</span></div>
+        <h4>Что сделала</h4>
+        <ul><li>Описала <b>4-слойную архитектуру</b>: Frontend, Backend, ML/AI, DevOps</li><li>Сформулировала требования к&nbsp;интеграции: REST-API между Node.js и&nbsp;FastAPI</li><li>Пайплайн <b>AI-оценивания</b>: парсинг контента → векторизация → семантический поиск → RAG-генерация → JSON-rubric (0–100)</li><li>Описала схему данных PostgreSQL и&nbsp;нефункциональные требования (privacy-first, локальные LLaMA-модели)</li></ul>
+        <h4>Стек</h4>
+        <div class="stack"><span class="tag">REST-API</span><span class="tag">PostgreSQL</span><span class="tag">Node.js · Express</span><span class="tag">Python · FastAPI</span><span class="tag acc">RAG</span><span class="tag acc">LLaMA (ollama)</span><span class="tag">Docker</span></div>
+      </div>
+      <div class="case-visual"><div class="case-visual-head"><div class="dots"><span></span><span></span><span></span></div><span>tech_stack.svg</span></div><div class="case-visual-body"><svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+              <g font-family="Inter" font-weight="700">
+                <g>
+                  <rect x="60" y="40" width="380" height="62" rx="10" fill="#191926" class="acc-stroke" stroke-width="1.5"/>
+                  <text x="78" y="64" class="acc-text" font-size="11" letter-spacing="2">FRONTEND</text>
+                  <text x="78" y="86" font-family="JetBrains Mono,Consolas,monospace" font-size="11" fill="#EFEFF4" font-weight="500">JavaScript  ·  HTMX  ·  Tailwind CSS</text>
+                </g>
+                <g>
+                  <rect x="60" y="120" width="380" height="62" rx="10" fill="#191926" class="acc-stroke" stroke-width="1.5"/>
+                  <text x="78" y="144" class="acc-text" font-size="11" letter-spacing="2">BACKEND · APP</text>
+                  <text x="78" y="166" font-family="JetBrains Mono,Consolas,monospace" font-size="11" fill="#EFEFF4" font-weight="500">Node.js  ·  Express  ·  PostgreSQL  ·  Prisma / Knex</text>
+                </g>
+                <g>
+                  <rect x="60" y="200" width="380" height="62" rx="10" class="acc-fill-soft acc-stroke" stroke-width="2"/>
+                  <text x="78" y="224" fill="#FBBF24" font-size="11" letter-spacing="2">ML / AI · RAG PIPELINE</text>
+                  <text x="78" y="246" font-family="JetBrains Mono,Consolas,monospace" font-size="11" fill="#EFEFF4" font-weight="500">Python  ·  FastAPI  ·  LLaMA (ollama)  ·  JSON rubric</text>
+                </g>
+                <g>
+                  <rect x="60" y="280" width="380" height="62" rx="10" fill="#191926" class="acc-stroke" stroke-width="1.5"/>
+                  <text x="78" y="304" class="acc-text" font-size="11" letter-spacing="2">DEVOPS</text>
+                  <text x="78" y="326" font-family="JetBrains Mono,Consolas,monospace" font-size="11" fill="#EFEFF4" font-weight="500">Docker Compose  ·  NGINX  ·  Certbot SSL  ·  Watchtower</text>
+                </g>
+                <g class="acc-stroke" stroke-width="1.5" fill="none" stroke-opacity=".5">
+                  <path d="M250 102 L 250 120"/><path d="M250 182 L 250 200"/><path d="M250 262 L 250 280"/>
+                </g>
+                <text x="60" y="376" fill="#62626C" font-family="Inter" font-size="11">Privacy-first: локальные LLaMA-модели, без отправки данных в облако</text>
+              </g>
+            </svg></div></div>
+    </div>
+
+    <div class="case">
+      <div>
+        <div class="case-num">КЕЙС 09</div>
+        <h3>Модель данных IDEF1X &mdash; система управления практикой</h3>
+        <div class="ctx"><span>Логическая модель данных</span><span>2025</span><span>EdTech · Internship management</span></div>
+        <h4>Что сделала</h4>
+        <ul><li>Спроектировала логическую модель в&nbsp;<b>IDEF1X</b> на&nbsp;<b>6 сущностей</b>: ПОЛЬЗОВАТЕЛЬ, СТУДЕНТ, ОРГАНИЗАЦИЯ, ПРАКТИКА, ЗАЯВКА, ДОГОВОР</li><li>Определила первичные/внешние ключи, связи 1:N, типизацию атрибутов (int, string, date, boolean)</li><li>Описала бизнес-правила: статусы заявки, флаги подписания договора студентом и&nbsp;организацией</li><li>Проверила нормализацию (3НФ), описала сценарии использования и&nbsp;ограничения целостности</li></ul>
+        <h4>Стек</h4>
+        <div class="stack"><span class="tag acc">IDEF1X</span><span class="tag acc">ER-моделирование</span><span class="tag acc">3НФ</span><span class="tag">draw.io / diagrams.net</span></div>
+      </div>
+      <div class="case-visual"><div class="case-visual-head"><div class="dots"><span></span><span></span><span></span></div><span>idef1x_model.svg</span><span class="acc-text">6 entities</span></div><div class="case-visual-body"><svg viewBox="0 0 540 460" xmlns="http://www.w3.org/2000/svg">
+              <g class="acc-stroke" stroke-width="1.5" fill="none">
+                <path d="M170 90 L 220 90"/><path d="M270 130 L 270 200"/>
+                <path d="M120 280 L 220 240"/><path d="M430 240 L 320 240"/>
+                <path d="M270 280 L 270 350"/>
+              </g>
+              <g class="acc-fill">
+                <circle cx="170" cy="90" r="3"/><circle cx="220" cy="90" r="3"/>
+                <circle cx="270" cy="130" r="3"/><circle cx="270" cy="200" r="3"/>
+                <circle cx="120" cy="280" r="3"/><circle cx="220" cy="240" r="3"/>
+                <circle cx="430" cy="240" r="3"/><circle cx="320" cy="240" r="3"/>
+                <circle cx="270" cy="280" r="3"/><circle cx="270" cy="350" r="3"/>
+              </g>
+              <g font-family="JetBrains Mono,Consolas,monospace" font-size="10">
+                <g><rect x="40" y="50" width="130" height="84" rx="6" fill="#13131F" class="acc-stroke" stroke-width="1.5"/><rect x="40" y="50" width="130" height="22" rx="6" class="acc-fill"/><text x="54" y="66" fill="#FFFFFF" font-weight="700" font-size="12">ПОЛЬЗОВАТЕЛЬ</text><line x1="40" y1="86" x2="170" y2="86" class="acc-stroke" stroke-opacity=".3"/><text x="54" y="100" fill="#A0A0AC">PK user_id</text><text x="54" y="115" fill="#A0A0AC">login</text><text x="54" y="128" fill="#A0A0AC">role</text></g>
+                <g><rect x="220" y="50" width="130" height="84" rx="6" fill="#13131F" class="acc-stroke" stroke-width="1.5"/><rect x="220" y="50" width="130" height="22" rx="6" class="acc-fill"/><text x="234" y="66" fill="#FFFFFF" font-weight="700" font-size="12">СТУДЕНТ</text><line x1="220" y1="86" x2="350" y2="86" class="acc-stroke" stroke-opacity=".3"/><text x="234" y="100" fill="#A0A0AC">PK student_id</text><text x="234" y="113" fill="#A0A0AC">FK user_id</text><text x="234" y="126" fill="#FBBF24">group · email</text></g>
+                <g><rect x="40" y="240" width="160" height="84" rx="6" fill="#13131F" class="acc-stroke" stroke-width="1.5"/><rect x="40" y="240" width="160" height="22" rx="6" class="acc-fill"/><text x="54" y="256" fill="#FFFFFF" font-weight="700" font-size="12">ОРГАНИЗАЦИЯ</text><line x1="40" y1="276" x2="200" y2="276" class="acc-stroke" stroke-opacity=".3"/><text x="54" y="290" fill="#A0A0AC">PK company_id</text><text x="54" y="303" fill="#A0A0AC">name · ИНН · ОГРН</text><text x="54" y="316" fill="#A0A0AC">status · created_by</text></g>
+                <g><rect x="220" y="200" width="160" height="84" rx="6" fill="#13131F" class="acc-stroke" stroke-width="2"/><rect x="220" y="200" width="160" height="22" rx="6" class="acc-fill"/><text x="234" y="216" fill="#FFFFFF" font-weight="700" font-size="12">ЗАЯВКА</text><line x1="220" y1="236" x2="380" y2="236" class="acc-stroke" stroke-opacity=".3"/><text x="234" y="250" fill="#A0A0AC">PK application_id</text><text x="234" y="263" fill="#A0A0AC">FK student · company · practice</text><text x="234" y="276" fill="#FBBF24">date · type · status</text></g>
+                <g><rect x="430" y="200" width="100" height="84" rx="6" fill="#13131F" class="acc-stroke" stroke-width="1.5"/><rect x="430" y="200" width="100" height="22" rx="6" class="acc-fill"/><text x="444" y="216" fill="#FFFFFF" font-weight="700" font-size="12">ПРАКТИКА</text><line x1="430" y1="236" x2="530" y2="236" class="acc-stroke" stroke-opacity=".3"/><text x="444" y="250" fill="#A0A0AC">PK practice_id</text><text x="444" y="263" fill="#A0A0AC">type</text><text x="444" y="276" fill="#A0A0AC">date_start</text></g>
+                <g><rect x="190" y="350" width="200" height="86" rx="6" fill="#13131F" class="acc-stroke" stroke-width="1.5"/><rect x="190" y="350" width="200" height="22" rx="6" class="acc-fill"/><text x="204" y="366" fill="#FFFFFF" font-weight="700" font-size="12">ДОГОВОР</text><line x1="190" y1="386" x2="390" y2="386" class="acc-stroke" stroke-opacity=".3"/><text x="204" y="400" fill="#A0A0AC">PK contract_id · FK application_id</text><text x="204" y="413" fill="#A0A0AC">number · date_signed</text><text x="204" y="426" fill="#FBBF24">signed_by_org · signed_by_uni</text></g>
+              </g>
+              <g font-family="Inter" font-size="11" font-weight="700" fill="#FBBF24">
+                <text x="190" y="84">1:1</text><text x="280" y="170">1:N</text><text x="170" y="265">1:N</text><text x="395" y="232">N:1</text><text x="280" y="320">1:1</text>
+              </g>
+            </svg></div></div>
+    </div>
+
+    <div class="case">
+      <div>
+        <div class="case-num">КЕЙС 10</div>
+        <h3>Курсовая на C++ &mdash; конвертер позиционных систем счисления</h3>
+        <div class="ctx"><span>Курсовая работа</span><span>2024</span><span>МИРЭА · УИБО-07-23</span></div>
+        <h4>Что сделала</h4>
+        <ul><li>Реализовала программу-конвертер чисел между <b>позиционными системами счисления 1–16</b></li><li>Разработала модульную структуру: функции <code>displayMenu</code>, <code>isValidNumber</code>, <code>convertToDecimal</code>, <code>convertFromDecimal</code></li><li>Реализовала валидацию ввода и&nbsp;<b>обработку исключений</b> через <code>try/catch</code> и&nbsp;<code>overflow_error</code></li><li>Покрыла функциональность <b>9 тестовыми сценариями</b>, включая граничные случаи (UINT64, LLONG_MAX)</li><li>Оформила пояснительную записку и&nbsp;защитила работу</li></ul>
+        <h4>Стек</h4>
+        <div class="stack"><span class="tag acc">C++ 11/14/17</span><span class="tag">STL</span><span class="tag">iostream · string · cmath</span><span class="tag">stdexcept</span></div>
+      </div>
+      <div class="case-visual"><div class="case-visual-head"><div class="dots"><span></span><span></span><span></span></div><span>converter.cpp · фрагмент</span></div><div class="case-visual-body" style="padding:24px;align-items:flex-start;justify-content:flex-start"><pre><span class="com">// Безопасный конвертер: десятичная → произвольная база</span>
+<span class="kw">std::string</span> <span class="fn">convertFromDecimal</span>(<span class="kw">unsigned long long</span> n, <span class="kw">int</span> base) {
+    <span class="kw">if</span> (base &lt; <span class="num">2</span> || base &gt; <span class="num">16</span>)
+        <span class="kw">throw</span> <span class="typ">std::overflow_error</span>(<span class="str">"base out of range [2..16]"</span>);
+
+    <span class="kw">if</span> (n == <span class="num">0</span>) <span class="kw">return</span> <span class="str">"0"</span>;
+    <span class="kw">const std::string</span> digits = <span class="str">"0123456789ABCDEF"</span>;
+    <span class="typ">std::string</span> out;
+    <span class="kw">while</span> (n &gt; <span class="num">0</span>) {
+        out += digits[n % base];
+        n /= base;
+    }
+    <span class="typ">std::reverse</span>(out.<span class="fn">begin</span>(), out.<span class="fn">end</span>());
+    <span class="kw">return</span> out;
+}
+
+<span class="com">// Валидация: только символы из текущего алфавита</span>
+<span class="kw">bool</span> <span class="fn">isValidNumber</span>(<span class="kw">const std::string</span>&amp; s, <span class="kw">int</span> base) {
+    <span class="kw">for</span> (<span class="kw">char</span> c : s) {
+        <span class="kw">int</span> v = <span class="typ">std::isdigit</span>(c) ? c-<span class="str">'0'</span> : <span class="typ">std::toupper</span>(c)-<span class="str">'A'</span>+<span class="num">10</span>;
+        <span class="kw">if</span> (v &lt; <span class="num">0</span> || v &gt;= base) <span class="kw">return</span> <span class="kw">false</span>;
+    }
+    <span class="kw">return</span> !s.<span class="fn">empty</span>();
+}
+<span class="com">// 9 тестов:  255₁₀ → FF₁₆ · 1024₁₀ → 10000000000₂  · граничные UINT64</span></pre></div></div>
     </div>
   </div>
 </section>
@@ -667,28 +762,6 @@ footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:
   </div>
 </section>
 
-<section id="dirs">
-  <div class="container">
-    <span class="eyebrow">Профильные версии</span>
-    <h2>Резюме под конкретную роль</h2>
-    <p class="muted" style="margin-top:16px;font-size:16px;max-width:640px">Те же кейсы, раскрытые под оптику конкретной позиции, — с&nbsp;отдельными скачиваемыми резюме.</p>
-    <div class="dir-cards">
-      <a class="dir ba" href="ba/">
-        <span class="dir-tag">● Business Analyst</span>
-        <h3>Продуктовая и бизнес-аналитика</h3>
-        <p>ВкусВилл, Studyhall (стратегия, монетизация, ARPU), бизнес-архитектура, IT-аудит.</p>
-        <span class="dir-cta">Открыть BA-версию →</span>
-      </a>
-      <a class="dir sa" href="sa/">
-        <span class="dir-tag">● System Analyst</span>
-        <h3>Системный анализ и моделирование</h3>
-        <p>ТЗ по ГОСТ 34.602-89, модель данных IDEF1X, AS-IS / TO-BE, SQL · C++.</p>
-        <span class="dir-cta">Открыть SA-версию →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
 <section id="contact">
   <div class="container">
     <div class="about-grid">
@@ -697,8 +770,7 @@ footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:
         <h2>Открыта к стажировкам<span style="color:var(--acc)">.</span></h2>
         <p class="muted" style="margin-top:18px;font-size:16px;max-width:480px">Стажировки и&nbsp;junior-роли: продуктовые исследования, аналитика, продуктовый маркетинг. Гибрид или удалённо, готова к&nbsp;редким командировкам.</p>
         <div style="display:flex;gap:12px;margin-top:32px;flex-wrap:wrap">
-          <a class="btn" href="ba/Resume_Business_Analyst_Barotova_2pages.docx" download>Резюме · BA (DOCX)</a>
-          <a class="btn ghost" href="sa/Resume_System_Analyst_Barotova_2pages.docx" download>Резюме · SA (DOCX)</a>
+          <a class="btn" href="ba/Resume_Business_Analyst_Barotova_2pages.docx" download>Скачать резюме (DOCX)</a>
         </div>
       </div>
       <div class="contact-card">
