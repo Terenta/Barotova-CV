@@ -123,8 +123,6 @@ nav.top{position:sticky;top:0;z-index:50;background:rgba(10,10,16,.85);backdrop-
 .case-visual-body{padding:32px 28px;flex:1;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--bg-card) 0%,#0F0F18 100%)}
 .case-visual-body img{max-width:100%;height:auto;border-radius:10px;box-shadow:0 4px 24px rgba(0,0,0,.4)}
 .case-visual-body svg{max-width:100%;height:auto;display:block}
-.case-visual-body pre{margin:0;width:100%;font-family:'JetBrains Mono','Consolas',monospace;font-size:11.5px;line-height:1.6;color:#D4D4DA;background:transparent;overflow:auto;white-space:pre}
-.kw{color:#C586C0} .typ{color:#4EC9B0} .str{color:#CE9178} .num{color:#B5CEA8} .com{color:#6A9955;font-style:italic} .fn{color:#DCDCAA}
 
 /* SVG accent helpers */
 .acc-fill{fill:var(--acc)}
@@ -303,7 +301,7 @@ footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:
       <div>
         <h2>Учебные проекты</h2>
       </div>
-      <div class="dim" style="font-size:13px">10&nbsp;кейсов · автоматизация продаж, продуктовая стратегия, исследования, требования</div>
+      <div class="dim" style="font-size:13px">9&nbsp;кейсов · автоматизация продаж, продуктовая стратегия, исследования, требования</div>
     </div>
 
     <div class="case">
@@ -673,42 +671,6 @@ footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:
     <div class="case">
       <div>
         <div class="case-num">КЕЙС 09</div>
-        <h3>Курсовая на C++ &mdash; конвертер позиционных систем счисления</h3>
-        <div class="ctx"><span>Курсовая работа</span><span>2024</span><span>МИРЭА · УИБО-07-23</span></div>
-        <h4>Что сделала</h4>
-        <ul><li>Реализовала программу-конвертер чисел между <b>позиционными системами счисления 1–16</b></li><li>Разработала модульную структуру: функции <code>displayMenu</code>, <code>isValidNumber</code>, <code>convertToDecimal</code>, <code>convertFromDecimal</code></li><li>Реализовала валидацию ввода и&nbsp;<b>обработку исключений</b> через <code>try/catch</code> и&nbsp;<code>overflow_error</code></li><li>Покрыла функциональность <b>9 тестовыми сценариями</b>, включая граничные случаи (UINT64, LLONG_MAX)</li><li>Оформила пояснительную записку и&nbsp;защитила работу</li></ul>
-        <h4>Стек</h4>
-        <div class="stack"><span class="tag acc">C++ 11/14/17</span><span class="tag">STL</span><span class="tag">iostream · string · cmath</span><span class="tag">stdexcept</span></div>
-      </div>
-      <div class="case-visual"><div class="case-visual-head"><div class="dots"><span></span><span></span><span></span></div><span>converter.cpp · фрагмент</span></div><div class="case-visual-body" style="padding:24px;align-items:flex-start;justify-content:flex-start"><pre><span class="com">// Безопасный конвертер: десятичная → произвольная база</span>
-<span class="kw">std::string</span> <span class="fn">convertFromDecimal</span>(<span class="kw">unsigned long long</span> n, <span class="kw">int</span> base) {
-    <span class="kw">if</span> (base &lt; <span class="num">2</span> || base &gt; <span class="num">16</span>)
-        <span class="kw">throw</span> <span class="typ">std::overflow_error</span>(<span class="str">"base out of range [2..16]"</span>);
-
-    <span class="kw">if</span> (n == <span class="num">0</span>) <span class="kw">return</span> <span class="str">"0"</span>;
-    <span class="kw">const std::string</span> digits = <span class="str">"0123456789ABCDEF"</span>;
-    <span class="typ">std::string</span> out;
-    <span class="kw">while</span> (n &gt; <span class="num">0</span>) {
-        out += digits[n % base];
-        n /= base;
-    }
-    <span class="typ">std::reverse</span>(out.<span class="fn">begin</span>(), out.<span class="fn">end</span>());
-    <span class="kw">return</span> out;
-}
-
-<span class="com">// Валидация: только символы из текущего алфавита</span>
-<span class="kw">bool</span> <span class="fn">isValidNumber</span>(<span class="kw">const std::string</span>&amp; s, <span class="kw">int</span> base) {
-    <span class="kw">for</span> (<span class="kw">char</span> c : s) {
-        <span class="kw">int</span> v = <span class="typ">std::isdigit</span>(c) ? c-<span class="str">'0'</span> : <span class="typ">std::toupper</span>(c)-<span class="str">'A'</span>+<span class="num">10</span>;
-        <span class="kw">if</span> (v &lt; <span class="num">0</span> || v &gt;= base) <span class="kw">return</span> <span class="kw">false</span>;
-    }
-    <span class="kw">return</span> !s.<span class="fn">empty</span>();
-}
-<span class="com">// 9 тестов:  255₁₀ → FF₁₆ · 1024₁₀ → 10000000000₂  · граничные UINT64</span></pre></div></div>
-    </div>
-    <div class="case">
-      <div>
-        <div class="case-num">КЕЙС 10</div>
         <h3>Стратегический анализ ВкусВилл</h3>
         <div class="ctx"><span>Командный (4 чел.)</span><span>2025</span><span>Retail · Healthy food</span></div>
         <h4>Что сделала</h4>
