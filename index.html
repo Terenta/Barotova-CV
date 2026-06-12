@@ -301,14 +301,78 @@ footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:
     <div class="cases-head">
       <div>
         <span class="eyebrow">Кейсы</span>
-        <h2>Над чем работала</h2>
+        <h2>Учебные проекты</h2>
       </div>
-      <div class="dim" style="font-size:13px">9&nbsp;кейсов · продуктовая стратегия, исследования, требования, аудит</div>
+      <div class="dim" style="font-size:13px">10&nbsp;кейсов · автоматизация продаж, продуктовая стратегия, исследования, требования</div>
     </div>
 
     <div class="case">
       <div>
         <div class="case-num">КЕЙС 01</div>
+        <h3>Внедрение AI-колл-центра в отдел продаж компании Eduson</h3>
+        <div class="ctx"><span>Проект автоматизации продаж</span><span>2026</span><span>EdTech · AI · CRM</span></div>
+        <h4>Что сделала</h4>
+        <ul>
+          <li>Проанализировала <b>AS-IS-процессы</b> колл-центра: передача и&nbsp;обработка лидов, узкие места через <b>диаграмму Исикавы</b> — стоимость контакта, скорость дозвона, масштабируемость</li>
+          <li>Сформировала требования к&nbsp;решению: <b>пользовательские истории</b>, функциональные и&nbsp;нефункциональные требования, целевые TO-BE-процессы в&nbsp;<b>BPMN / ArchiMate</b></li>
+          <li>Провела сравнительный анализ рынка AI-платформ по&nbsp;матрице критериев: внешнее решение vs <b>in-house</b>, безопасность, интеграции с&nbsp;CRM</li>
+          <li>Построила экономическую модель: <b>1 млн контактов ≈ 5,2 млн AI-минут/год</b>; внешний контур 80,6 млн&nbsp;₽/год против 13,4 млн&nbsp;₽ собственного → экономия <b>67,2 млн&nbsp;₽/год</b></li>
+          <li>Проработала карту рисков (технические, организационные, юридические — <b>152-ФЗ</b>) со&nbsp;стратегиями реагирования: эскалация на&nbsp;оператора, поэтапный запуск</li>
+          <li>Описала <b>MVP на&nbsp;базе SashaAI</b>: тестовая воронка «бесплатная AI-консультация для бизнеса», критерии успешности пилота — операционные, клиентские, экономические</li>
+        </ul>
+        <h4>Стек</h4>
+        <div class="stack"><span class="tag acc">AS-IS / TO-BE</span><span class="tag acc">BPMN · ArchiMate</span><span class="tag acc">Unit-экономика</span><span class="tag acc">Анализ рисков</span><span class="tag">User Stories</span><span class="tag">MVP</span><span class="tag">CRM</span></div>
+      </div>
+      <div class="case-visual"><div class="case-visual-head"><div class="dots"><span></span><span></span><span></span></div><span>ai_call_flow.svg</span><span class="acc-text">MVP · SashaAI</span></div><div class="case-visual-body"><svg viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg">
+              <text x="20" y="24" fill="#A0A0AC" font-family="Inter" font-size="11" letter-spacing="2" font-weight="700">ТЕСТОВАЯ ВОРОНКА MVP</text>
+              <g font-family="Inter" font-size="11">
+                <g><rect x="20" y="44" width="218" height="48" rx="8" fill="#191926" stroke="#23232E"/><text x="34" y="64" fill="#EFEFF4" font-weight="600">1 · Лендинг с оффером</text><text x="34" y="80" fill="#A0A0AC" font-size="10">бесплатная AI-консультация для бизнеса</text></g>
+                <g><rect x="20" y="104" width="218" height="48" rx="8" fill="#191926" stroke="#23232E"/><text x="34" y="124" fill="#EFEFF4" font-weight="600">2 · Заявка клиента</text><text x="34" y="140" fill="#A0A0AC" font-size="10">контакт + базовый запрос → тестовый контур</text></g>
+                <g><rect x="20" y="164" width="218" height="48" rx="8" class="acc-fill-soft acc-stroke" stroke-width="1.5"/><text x="34" y="184" fill="#EFEFF4" font-weight="600">3 · AI-звонок · SashaAI</text><text x="34" y="200" fill="#A0A0AC" font-size="10">диалог ~4 мин · раскрытие AI-статуса</text></g>
+                <g><rect x="20" y="224" width="218" height="48" rx="8" fill="#191926" stroke="#23232E"/><text x="34" y="244" fill="#EFEFF4" font-weight="600">4 · Квалификация</text><text x="34" y="260" fill="#A0A0AC" font-size="10">профиль, тип задачи, срочность, эффект</text></g>
+                <g><rect x="20" y="284" width="218" height="48" rx="8" fill="#22C55E" fill-opacity=".15" stroke="#22C55E"/><text x="34" y="304" fill="#22C55E" font-weight="600">5 · Передача в продажи</text><text x="34" y="320" fill="#A0A0AC" font-size="10">структурированный итог · без разбора звонка</text></g>
+              </g>
+              <g class="acc-stroke" stroke-width="1.5" fill="none">
+                <path d="M129 92 L 129 104"/><path d="M129 152 L 129 164"/><path d="M129 212 L 129 224"/><path d="M129 272 L 129 284"/>
+              </g>
+              <g transform="translate(268,44)">
+                <rect width="212" height="130" rx="10" fill="#191926" stroke="#23232E"/>
+                <text x="16" y="26" fill="#A0A0AC" font-family="Inter" font-size="10" letter-spacing="1.5">ПАРАМЕТРЫ МОДЕЛИ</text>
+                <text x="16" y="52" class="acc-text" font-family="Inter" font-size="16" font-weight="700">1 000 000</text>
+                <text x="16" y="68" fill="#A0A0AC" font-family="Inter" font-size="10">контактов базы в год</text>
+                <text x="16" y="94" class="acc-text" font-family="Inter" font-size="16" font-weight="700">5,2 млн минут</text>
+                <text x="16" y="110" fill="#A0A0AC" font-family="Inter" font-size="10">4 мин × 1,3 попытки дозвона</text>
+              </g>
+              <g transform="translate(268,186)">
+                <rect width="212" height="146" rx="10" fill="#191926" stroke="#23232E"/>
+                <text x="16" y="26" fill="#A0A0AC" font-family="Inter" font-size="10" letter-spacing="1.5">КРИТЕРИИ УСПЕХА ПИЛОТА</text>
+                <g font-family="Inter" font-size="10.5" fill="#EFEFF4">
+                  <text x="16" y="50">→ устойчивый содержательный диалог</text>
+                  <text x="16" y="72">→ клиент продолжает после AI-статуса</text>
+                  <text x="16" y="94">→ корректная квалификация потребности</text>
+                  <text x="16" y="116">→ стоимость контакта ниже ручной</text>
+                  <text x="16" y="136">→ итог пригоден для отдела продаж</text>
+                </g>
+              </g>
+            </svg></div><div class="case-visual-head"><div class="dots"><span></span><span></span><span></span></div><span>unit_economics.svg</span><span class="acc-text">−67,2 млн ₽/год</span></div><div class="case-visual-body"><svg viewBox="0 0 500 230" xmlns="http://www.w3.org/2000/svg">
+              <text x="20" y="24" fill="#A0A0AC" font-family="Inter" font-size="11" letter-spacing="2" font-weight="700">ЭКОНОМИКА: ВНЕШНИЙ КОНТУР VS СОБСТВЕННЫЙ</text>
+              <g font-family="Inter" font-size="11">
+                <text x="20" y="56" fill="#EFEFF4">SashaAI (15,5 ₽/мин)</text>
+                <rect x="20" y="64" width="440" height="16" rx="6" fill="#23232E"/>
+                <rect x="20" y="64" width="440" height="16" rx="6" fill="#EF4444" fill-opacity=".75"/>
+                <text x="20" y="98" fill="#EF4444" font-weight="700" font-size="13">80,6 млн ₽/год</text>
+                <text x="20" y="130" fill="#EFEFF4">Собственный контур</text>
+                <rect x="20" y="138" width="440" height="16" rx="6" fill="#23232E"/>
+                <rect x="20" y="138" width="73" height="16" rx="6" fill="#22C55E" fill-opacity=".85"/>
+                <text x="20" y="172" fill="#22C55E" font-weight="700" font-size="13">13,4 млн ₽/год</text>
+                <text x="20" y="206" fill="#A0A0AC" font-size="10.5">Экономия 67,2 млн ₽/год (5,6 млн ₽/мес) · CAPEX собственной разработки 5,56 млн ₽ · стратегия: MVP на внешней платформе → переход к in-house при подтверждении метрик</text>
+              </g>
+            </svg></div></div>
+    </div>
+
+    <div class="case">
+      <div>
+        <div class="case-num">КЕЙС 02</div>
         <h3>Studyhall &mdash; продуктовая стратегия (UBK EdTech)</h3>
         <div class="ctx"><span>Учебный продуктовый кейс</span><span>2025</span><span>EdTech · Gamified learning</span></div>
         <h4>Что сделала</h4>
@@ -343,7 +407,7 @@ footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:
 
     <div class="case">
       <div>
-        <div class="case-num">КЕЙС 02</div>
+        <div class="case-num">КЕЙС 03</div>
         <h3>Стратегический анализ ВкусВилл</h3>
         <div class="ctx"><span>Командный (4 чел.)</span><span>2025</span><span>Retail · Healthy food</span></div>
         <h4>Что сделала</h4>
@@ -373,7 +437,7 @@ footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:
 
     <div class="case">
       <div>
-        <div class="case-num">КЕЙС 03</div>
+        <div class="case-num">КЕЙС 04</div>
         <h3>ТЗ системы поддержки Eduson Academy</h3>
         <div class="ctx"><span>Учебный кейс</span><span>сент. — дек. 2025</span><span>14 недель · 6 этапов</span></div>
         <h4>Что сделала</h4>
@@ -455,7 +519,7 @@ footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:
 
     <div class="case">
       <div>
-        <div class="case-num">КЕЙС 04</div>
+        <div class="case-num">КЕЙС 05</div>
         <h3>IT-аудит сайта Eduson Academy</h3>
         <div class="ctx"><span>Аудит продукта</span><span>2025</span><span>UX · Performance · SEO</span></div>
         <h4>Что сделала</h4>
@@ -497,7 +561,7 @@ footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:
 
     <div class="case">
       <div>
-        <div class="case-num">КЕЙС 05</div>
+        <div class="case-num">КЕЙС 06</div>
         <h3>Моделирование процессов AS-IS / TO-BE</h3>
         <div class="ctx"><span>Оптимизация процесса</span><span>2025</span><span>Process modeling</span></div>
         <h4>Что сделала</h4>
@@ -547,7 +611,7 @@ footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:
 
     <div class="case">
       <div>
-        <div class="case-num">КЕЙС 06</div>
+        <div class="case-num">КЕЙС 07</div>
         <h3>Бизнес-архитектура Eduson Academy</h3>
         <div class="ctx"><span>Системный анализ организации</span><span>2025</span><span>EdTech · LMS</span></div>
         <h4>Что сделала</h4>
@@ -560,19 +624,19 @@ footer{padding:32px 0;border-top:1px solid var(--border);font-size:12.5px;color:
 
     <div class="more-cases">
       <a class="mc" href="ba/">
-        <div class="mc-num">КЕЙС 07 · BA-ВЕРСИЯ</div>
+        <div class="mc-num">КЕЙС 08 · BA-ВЕРСИЯ</div>
         <h3>Техническая архитектура Studyhall</h3>
         <p>4-слойная архитектура (Frontend / Backend / ML·AI / DevOps), REST API, AI-оценивание с RAG-пайплайном, схема PostgreSQL.</p>
         <span class="mc-link">Смотреть в BA-лендинге →</span>
       </a>
       <a class="mc sa-flav" href="sa/">
-        <div class="mc-num">КЕЙС 08 · SA-ВЕРСИЯ</div>
+        <div class="mc-num">КЕЙС 09 · SA-ВЕРСИЯ</div>
         <h3>Модель данных IDEF1X</h3>
         <p>Логическая модель на 6 сущностей: ключи, связи 1:N, бизнес-правила, проверка нормализации (3НФ).</p>
         <span class="mc-link">Смотреть в SA-лендинге →</span>
       </a>
       <a class="mc sa-flav" href="sa/">
-        <div class="mc-num">КЕЙС 09 · SA-ВЕРСИЯ</div>
+        <div class="mc-num">КЕЙС 10 · SA-ВЕРСИЯ</div>
         <h3>Курсовая на C++ — конвертер систем счисления</h3>
         <p>Системы счисления 1–16, модульная структура, валидация и обработка исключений, 9 тестовых сценариев.</p>
         <span class="mc-link">Смотреть в SA-лендинге →</span>
